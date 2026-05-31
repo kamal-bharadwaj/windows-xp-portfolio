@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Computer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-variant": "#e6e3d2",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#f1eedd",
+                        "surface-container-low": "#f7f4e3",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#1c1c12",
+                        "outline": "#737686",
+                        "on-secondary-fixed": "#002204",
+                        "secondary-container": "#aaf5a5",
+                        "outline-variant": "#c3c6d6",
+                        "surface-bright": "#fdfae8",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-tint": "#1355d2",
+                        "surface": "#fdfae8",
+                        "secondary-fixed-dim": "#8fd88b",
+                        "on-secondary-container": "#2d7232",
+                        "on-tertiary-fixed-variant": "#802900",
+                        "primary-fixed-dim": "#b3c5ff",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#0046b8",
+                        "on-tertiary-fixed": "#380d00",
+                        "on-primary-container": "#e0e5ff",
+                        "inverse-surface": "#313126",
+                        "surface-container-highest": "#e6e3d2",
+                        "primary-container": "#245edb",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#aaf5a5",
+                        "on-secondary-fixed-variant": "#045317",
+                        "surface-container-high": "#ece9d8",
+                        "on-primary-fixed-variant": "#003ea6",
+                        "on-tertiary-container": "#ffe0d5",
+                        "background": "#fdfae8",
+                        "on-primary-fixed": "#00174a",
+                        "inverse-on-surface": "#f4f1e0",
+                        "on-surface-variant": "#434654",
+                        "on-surface": "#1c1c12",
+                        "secondary": "#266c2d",
+                        "inverse-primary": "#b3c5ff",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#8e2f00",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "tertiary-fixed": "#ffdbcf",
+                        "tertiary-container": "#b73e00",
+                        "surface-dim": "#dddaca",
+                        "on-secondary": "#ffffff"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "gutter": "8px",
+                        "unit": "4px",
+                        "edge-margin": "4px",
+                        "container-padding": "12px"
+                    },
+                    fontFamily: {
+                        "label-sm": ["Arimo"],
+                        "heading-lg-mobile": ["Arimo"],
+                        "heading-lg": ["Arimo"],
+                        "title-bar": ["Arimo"],
+                        "button-text": ["Arimo"],
+                        "body-md": ["Arimo"]
+                    },
+                    fontSize: {
+                        "label-sm": ["11px", { lineHeight: "14px", fontWeight: "400" }],
+                        "heading-lg-mobile": ["16px", { lineHeight: "22px", fontWeight: "700" }],
+                        "heading-lg": ["18px", { lineHeight: "24px", fontWeight: "700" }],
+                        "title-bar": ["13px", { lineHeight: "16px", letterSpacing: "0.5px", fontWeight: "700" }],
+                        "button-text": ["12px", { lineHeight: "12px", fontWeight: "400" }],
+                        "body-md": ["12px", { lineHeight: "16px", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .luna-bevel-raised {
+            box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.8), inset -1px -1px 0px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 0, 0, 0.5);
+        }
+        .luna-bevel-sunken {
+            box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.3), inset -1px -1px 0px rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.4);
+        }
+        .luna-button {
+            background: linear-gradient(180deg, #f4f4f4 0%, #d4d0c8 100%);
+            box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.9), inset -1px -1px 0px rgba(0, 0, 0, 0.3);
+            border: 1px solid #7a7a7a;
+            border-radius: 3px;
+        }
+        .luna-button:active {
+            background: linear-gradient(180deg, #d4d0c8 0%, #f4f4f4 100%);
+            box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.2);
+        }
+        .luna-close-button {
+            background: linear-gradient(180deg, #e37e6f 0%, #ce4a2d 100%);
+            box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.6), inset -1px -1px 0px rgba(0, 0, 0, 0.4);
+            border: 1px solid #7a1f11;
+            border-radius: 3px;
+            color: white;
+            font-weight: bold;
+        }
+        .luna-close-button:active {
+            background: linear-gradient(180deg, #ce4a2d 0%, #a8311a 100%);
+            box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-[#004e98] h-full flex flex-col items-center justify-center p-8 font-body-md text-body-md">
+<!-- Main Desktop Metaphor Window -->
+<div class="w-full max-w-5xl h-[80vh] bg-surface-container-lowest flex flex-col rounded-t-xl shadow-2xl overflow-hidden ring-1 ring-primary-container">
+<!-- TopAppBar -->
+<div class="flex justify-between items-center h-[30px] px-2 w-full bg-gradient-to-b from-[#0058ee] to-[#3784ff] border-b border-on-primary-fixed-variant shadow-[inset_1px_1px_0px_#3784ff] rounded-t-xl">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[16px] text-on-primary" style="font-variation-settings: 'FILL' 1;">computer</span>
+<span class="font-title-bar text-title-bar text-on-primary drop-shadow-[1px_1px_0px_rgba(0,0,0,0.5)]">My Computer</span>
+</div>
+<div class="flex items-center space-x-1">
+<button aria-label="Minimize" class="luna-button w-5 h-5 flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]">minimize</span>
+</button>
+<button aria-label="Maximize" class="luna-button w-5 h-5 flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]">web_asset</span>
+</button>
+<button aria-label="Close" class="luna-close-button w-5 h-5 flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] leading-none">close</span>
+</button>
+</div>
+</div>
+<!-- Menu Bar -->
+<div class="bg-surface-variant border-b border-outline-variant flex items-center h-6 px-1">
+<div class="flex space-x-1">
+<button class="px-2 hover:bg-primary hover:text-on-primary cursor-default text-on-surface">File</button>
+<button class="px-2 hover:bg-primary hover:text-on-primary cursor-default text-on-surface">Edit</button>
+<button class="px-2 hover:bg-primary hover:text-on-primary cursor-default text-on-surface">View</button>
+<button class="px-2 hover:bg-primary hover:text-on-primary cursor-default text-on-surface">Favorites</button>
+<button class="px-2 hover:bg-primary hover:text-on-primary cursor-default text-on-surface">Tools</button>
+<button class="px-2 hover:bg-primary hover:text-on-primary cursor-default text-on-surface">Help</button>
+</div>
+</div>
+<!-- Standard Toolbar -->
+<div class="bg-surface-variant border-b border-outline-variant flex items-center h-10 px-2 space-x-2">
+<button class="flex items-center space-x-1 hover:brightness-110 active:brightness-90 px-2 py-1 rounded text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">arrow_back</span>
+<span>Back</span>
+</button>
+<div class="w-px h-6 bg-outline-variant mx-1"></div>
+<button aria-label="Forward" class="hover:brightness-110 active:brightness-90 px-1 py-1 rounded text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">arrow_forward</span>
+</button>
+<button aria-label="Up" class="hover:brightness-110 active:brightness-90 px-1 py-1 rounded text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">arrow_upward</span>
+</button>
+<div class="w-px h-6 bg-outline-variant mx-1"></div>
+<button class="flex items-center space-x-1 hover:brightness-110 active:brightness-90 px-2 py-1 rounded text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">search</span>
+<span>Search</span>
+</button>
+<button class="flex items-center space-x-1 hover:brightness-110 active:brightness-90 px-2 py-1 rounded text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">folder</span>
+<span>Folders</span>
+</button>
+</div>
+<!-- Address Bar -->
+<div class="bg-surface-variant border-b border-outline-variant flex items-center h-8 px-2 space-x-2">
+<span class="text-on-surface-variant">Address</span>
+<div class="flex-1 bg-surface-container-lowest luna-bevel-sunken h-6 flex items-center px-2">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant mr-2" style="font-variation-settings: 'FILL' 1;">computer</span>
+<span class="text-on-surface">My Computer</span>
+</div>
+<button class="flex items-center space-x-1 hover:brightness-110 active:brightness-90 px-2 py-1 rounded text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">arrow_forward</span>
+<span>Go</span>
+</button>
+</div>
+<!-- Content Area Split -->
+<div class="flex flex-1 overflow-hidden">
+<!-- SideNavBar -->
+<div class="w-64 h-full bg-gradient-to-b from-[#74a0ec] to-[#567bdb] border-r border-outline-variant shadow-[inset_-1px_0px_0px_#ffffff] flex flex-col p-4 space-y-4 overflow-y-auto">
+<!-- Group Box: System Tasks -->
+<div class="bg-surface-container-lowest rounded-t-lg overflow-hidden ring-1 ring-primary-container shadow-md">
+<div class="bg-gradient-to-r from-surface-container-lowest to-[#dde7fa] px-3 py-1 font-heading-lg text-heading-lg text-primary flex items-center justify-between cursor-pointer">
+<span>System Tasks</span>
+<span class="material-symbols-outlined text-[16px]">expand_less</span>
+</div>
+<div class="p-3 flex flex-col space-y-2 text-primary">
+<a class="flex items-center space-x-2 hover:underline" href="#">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">info</span>
+<span>View system information</span>
+</a>
+<a class="flex items-center space-x-2 hover:underline" href="#">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">apps</span>
+<span>Add or remove programs</span>
+</a>
+<a class="flex items-center space-x-2 hover:underline" href="#">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span>Change a setting</span>
+</a>
+</div>
+</div>
+<!-- Group Box: Other Places -->
+<div class="bg-surface-container-lowest rounded-t-lg overflow-hidden ring-1 ring-primary-container shadow-md">
+<div class="bg-gradient-to-r from-surface-container-lowest to-[#dde7fa] px-3 py-1 font-heading-lg text-heading-lg text-primary flex items-center justify-between cursor-pointer">
+<span>Other Places</span>
+<span class="material-symbols-outlined text-[16px]">expand_less</span>
+</div>
+<div class="p-3 flex flex-col space-y-2 text-primary">
+<a class="flex items-center space-x-2 hover:underline text-on-surface-variant" href="#">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">lan</span>
+<span>My Network Places</span>
+</a>
+<a class="flex items-center space-x-2 hover:underline text-on-surface-variant" href="#">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">folder</span>
+<span>My Documents</span>
+</a>
+<a class="flex items-center space-x-2 hover:underline text-on-surface-variant" href="#">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span>Shared Documents</span>
+</a>
+<a class="flex items-center space-x-2 hover:underline text-on-surface-variant" href="#">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">desktop_windows</span>
+<span>Control Panel</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Main Content Area (Explorer Canvas) -->
+<div class="flex-1 bg-surface-container-lowest p-container-padding overflow-y-auto">
+<!-- Category: Files Stored on This Computer -->
+<div class="mb-6">
+<div class="flex items-center mb-2 border-b border-outline-variant pb-1">
+<span class="font-heading-lg text-heading-lg text-primary-container">Files Stored on This Computer</span>
+<div class="flex-1 ml-2 h-px bg-gradient-to-r from-primary-container to-transparent"></div>
+</div>
+<div class="grid grid-cols-2 lg:grid-cols-3 gap-4 p-2">
+<!-- Item -->
+<div class="flex items-center p-1 hover:bg-[#ebf3fd] hover:ring-1 hover:ring-[#b8d6fb] rounded cursor-pointer group">
+<div class="w-12 h-12 flex-shrink-0 bg-cover bg-center mr-3" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDapH0Xb1igY4A8mWTGbCP-trNIevNXD4mu9jL0R-LaDOjo6inms5rZNYiF96nnQ41rSGQHMA2cW5TLyEdKf9T4ZU0JuMZLXgQg37E_7H2Mjf4wQsi_81vM8F6vWuTgGA8aTpPl1DUXAQi9zE1UjkV3SqmQaQRU8mdaQKEdqZyZbTrSjvtyhVjYwhKVF6tpzcHEXw3gD8pP1YY4PE4jrbKMwHegLN9ovC05uaKzOtzXffKEzwPXSs4fi4oDk08DCMXOke3CG7KVI0w'); background-position: -20px -20px;"></div>
+<div class="flex flex-col">
+<span class="text-on-surface group-hover:underline">Shared Documents</span>
+</div>
+</div>
+<!-- Item -->
+<div class="flex items-center p-1 hover:bg-[#ebf3fd] hover:ring-1 hover:ring-[#b8d6fb] rounded cursor-pointer group">
+<div class="w-12 h-12 flex-shrink-0 bg-cover bg-center mr-3" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDapH0Xb1igY4A8mWTGbCP-trNIevNXD4mu9jL0R-LaDOjo6inms5rZNYiF96nnQ41rSGQHMA2cW5TLyEdKf9T4ZU0JuMZLXgQg37E_7H2Mjf4wQsi_81vM8F6vWuTgGA8aTpPl1DUXAQi9zE1UjkV3SqmQaQRU8mdaQKEdqZyZbTrSjvtyhVjYwhKVF6tpzcHEXw3gD8pP1YY4PE4jrbKMwHegLN9ovC05uaKzOtzXffKEzwPXSs4fi4oDk08DCMXOke3CG7KVI0w'); background-position: -120px -20px;"></div>
+<div class="flex flex-col">
+<span class="text-on-surface group-hover:underline">User's Documents</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Category: Hard Disk Drives -->
+<div class="mb-6">
+<div class="flex items-center mb-2 border-b border-outline-variant pb-1">
+<span class="font-heading-lg text-heading-lg text-primary-container">Hard Disk Drives</span>
+<div class="flex-1 ml-2 h-px bg-gradient-to-r from-primary-container to-transparent"></div>
+</div>
+<div class="grid grid-cols-2 lg:grid-cols-3 gap-4 p-2">
+<!-- Drive Item -->
+<div class="flex items-center p-1 hover:bg-[#ebf3fd] hover:ring-1 hover:ring-[#b8d6fb] rounded cursor-pointer group">
+<div class="w-12 h-12 flex-shrink-0 bg-cover bg-center mr-3" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDapH0Xb1igY4A8mWTGbCP-trNIevNXD4mu9jL0R-LaDOjo6inms5rZNYiF96nnQ41rSGQHMA2cW5TLyEdKf9T4ZU0JuMZLXgQg37E_7H2Mjf4wQsi_81vM8F6vWuTgGA8aTpPl1DUXAQi9zE1UjkV3SqmQaQRU8mdaQKEdqZyZbTrSjvtyhVjYwhKVF6tpzcHEXw3gD8pP1YY4PE4jrbKMwHegLN9ovC05uaKzOtzXffKEzwPXSs4fi4oDk08DCMXOke3CG7KVI0w'); background-position: -220px -20px;"></div>
+<div class="flex flex-col">
+<span class="text-on-surface group-hover:underline">Local Disk (C:)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Category: Devices with Removable Storage -->
+<div class="mb-6">
+<div class="flex items-center mb-2 border-b border-outline-variant pb-1">
+<span class="font-heading-lg text-heading-lg text-primary-container">Devices with Removable Storage</span>
+<div class="flex-1 ml-2 h-px bg-gradient-to-r from-primary-container to-transparent"></div>
+</div>
+<div class="grid grid-cols-2 lg:grid-cols-3 gap-4 p-2">
+<!-- CD Drive Item -->
+<div class="flex items-center p-1 hover:bg-[#ebf3fd] hover:ring-1 hover:ring-[#b8d6fb] rounded cursor-pointer group">
+<div class="w-12 h-12 flex-shrink-0 bg-cover bg-center mr-3 flex items-center justify-center">
+<span class="material-symbols-outlined text-[32px] text-[#7a7a7a]">album</span>
+</div>
+<div class="flex flex-col">
+<span class="text-on-surface group-hover:underline">CD Drive (D:)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Status Bar -->
+<div class="bg-surface-variant border-t border-outline-variant flex items-center justify-between h-6 px-2 text-label-sm font-label-sm text-on-surface-variant">
+<div class="flex items-center space-x-4">
+<span>4 objects</span>
+</div>
+<div class="flex items-center space-x-4 border-l border-outline-variant pl-4">
+<span class="flex items-center space-x-1">
+<span class="material-symbols-outlined text-[12px]">computer</span>
+<span>My Computer</span>
+</span>
+</div>
+</div>
+</div>
+<!-- Persistent Taskbar (BottomNavBar context) -->
+<div class="fixed bottom-0 left-0 w-full z-50 h-10 flex items-center bg-gradient-to-b from-[#245edb] to-[#0046b8] border-t border-[#003ea6] shadow-lg">
+<button class="flex items-center bg-secondary text-on-secondary rounded-r-full px-4 py-1 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.3)] hover:brightness-110 active:scale-95 transition-transform origin-left h-full italic font-heading-lg">
+<span class="mr-1 font-bold">start</span>
+</button>
+<div class="flex-1 flex items-center px-2 space-x-1">
+<!-- Active Window App Button -->
+<button class="flex items-center px-3 py-1 bg-[#1a4aab] border border-[#003ea6] shadow-[inset_1px_1px_2px_rgba(0,0,0,0.4)] rounded text-on-primary w-40 truncate">
+<span class="material-symbols-outlined text-[16px] mr-2" style="font-variation-settings: 'FILL' 1;">computer</span>
+<span class="truncate text-button-text font-button-text font-bold">My Computer</span>
+</button>
+</div>
+<!-- System Tray -->
+<div class="bg-gradient-to-b from-[#00bfff] to-[#009acd] h-full flex items-center px-3 border-l border-[#003ea6] space-x-2 text-on-primary font-button-text shadow-[inset_1px_0px_0px_rgba(255,255,255,0.3)]">
+<span class="material-symbols-outlined text-[14px]">volume_up</span>
+<span class="material-symbols-outlined text-[14px]">security</span>
+<span class="ml-1">12:00 PM</span>
+</div>
+</div>
+</body></html>

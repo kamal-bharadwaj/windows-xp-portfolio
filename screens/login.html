@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Windows Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e6e3d2",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#f1eedd",
+                        "surface-container-low": "#f7f4e3",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#1c1c12",
+                        "outline": "#737686",
+                        "on-secondary-fixed": "#002204",
+                        "secondary-container": "#aaf5a5",
+                        "outline-variant": "#c3c6d6",
+                        "surface-bright": "#fdfae8",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-tint": "#1355d2",
+                        "surface": "#fdfae8",
+                        "secondary-fixed-dim": "#8fd88b",
+                        "on-secondary-container": "#2d7232",
+                        "on-tertiary-fixed-variant": "#802900",
+                        "primary-fixed-dim": "#b3c5ff",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#0046b8",
+                        "on-tertiary-fixed": "#380d00",
+                        "on-primary-container": "#e0e5ff",
+                        "inverse-surface": "#313126",
+                        "surface-container-highest": "#e6e3d2",
+                        "primary-container": "#245edb",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#aaf5a5",
+                        "on-secondary-fixed-variant": "#045317",
+                        "surface-container-high": "#ece9d8",
+                        "on-primary-fixed-variant": "#003ea6",
+                        "on-tertiary-container": "#ffe0d5",
+                        "background": "#fdfae8",
+                        "on-primary-fixed": "#00174a",
+                        "inverse-on-surface": "#f4f1e0",
+                        "on-surface-variant": "#434654",
+                        "on-surface": "#1c1c12",
+                        "secondary": "#266c2d",
+                        "inverse-primary": "#b3c5ff",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#8e2f00",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "tertiary-fixed": "#ffdbcf",
+                        "tertiary-container": "#b73e00",
+                        "surface-dim": "#dddaca",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "8px",
+                        "unit": "4px",
+                        "edge-margin": "4px",
+                        "container-padding": "12px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Arimo"],
+                        "heading-lg-mobile": ["Arimo"],
+                        "heading-lg": ["Arimo"],
+                        "title-bar": ["Arimo"],
+                        "button-text": ["Arimo"],
+                        "body-md": ["Arimo"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "400" }],
+                        "heading-lg-mobile": ["16px", { "lineHeight": "22px", "fontWeight": "700" }],
+                        "heading-lg": ["18px", { "lineHeight": "24px", "fontWeight": "700" }],
+                        "title-bar": ["13px", { "lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "700" }],
+                        "button-text": ["12px", { "lineHeight": "12px", "fontWeight": "400" }],
+                        "body-md": ["12px", { "lineHeight": "16px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .bevel-raised {
+            border-top: 2px solid theme('colors.surface-container-lowest');
+            border-left: 2px solid theme('colors.surface-container-lowest');
+            border-bottom: 2px solid theme('colors.on-surface-variant');
+            border-right: 2px solid theme('colors.on-surface-variant');
+        }
+        .bevel-sunken {
+            border-top: 2px solid theme('colors.on-surface-variant');
+            border-left: 2px solid theme('colors.on-surface-variant');
+            border-bottom: 2px solid theme('colors.surface-container-lowest');
+            border-right: 2px solid theme('colors.surface-container-lowest');
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-[#245edb] to-[#0046b8] min-h-screen flex flex-col font-body-md overflow-hidden text-on-primary">
+<div class="flex-1 flex flex-row h-full">
+<!-- Left Side: Branding -->
+<div class="flex-1 flex flex-col justify-center items-end pr-16 relative">
+<div class="text-right">
+<h1 class="text-6xl font-heading-lg italic mb-2 tracking-tighter drop-shadow-md">Windows</h1>
+<p class="text-2xl text-secondary-fixed drop-shadow-md font-bold">To begin, click your user name</p>
+</div>
+<!-- Vertical Divider line with gradient fade -->
+<div class="absolute right-0 top-[10%] bottom-[10%] w-px bg-gradient-to-b from-transparent via-surface-container-low to-transparent opacity-50"></div>
+</div>
+<!-- Right Side: User List -->
+<div class="flex-1 flex flex-col justify-center items-start pl-16">
+<div class="flex items-center space-x-4 p-4 hover:bg-primary-fixed/20 rounded cursor-pointer transition-colors group">
+<div class="w-16 h-16 bg-surface-container-lowest rounded bevel-raised flex items-center justify-center border-2 border-outline group-hover:border-primary">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="chess">chess</span>
+</div>
+<div class="flex flex-col">
+<span class="font-heading-lg text-surface-container-lowest drop-shadow-sm mb-1 group-hover:text-primary-fixed transition-colors">Alex Mercer</span>
+<div class="flex items-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<input class="bevel-sunken bg-surface-container-lowest text-on-background px-2 py-1 text-label-sm w-48 focus:outline-none focus:ring-1 focus:ring-primary" placeholder="Password" type="password"/>
+<button class="w-6 h-6 bg-secondary bevel-raised flex items-center justify-center hover:brightness-110 active:bevel-sunken shadow-sm">
+<span class="material-symbols-outlined text-on-secondary text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Action Bar -->
+<div class="h-24 bg-gradient-to-r from-primary via-primary-container to-primary flex justify-between items-center px-8 border-t border-surface-tint">
+<button class="flex items-center space-x-2 text-on-primary hover:text-primary-fixed transition-colors focus:outline-none group">
+<div class="w-10 h-10 bg-error rounded bevel-raised flex items-center justify-center group-hover:brightness-110 group-active:bevel-sunken">
+<span class="material-symbols-outlined text-on-error" data-icon="power_settings_new">power_settings_new</span>
+</div>
+<span class="font-heading-lg drop-shadow-sm">Turn off computer</span>
+</button>
+<div class="max-w-md text-right text-on-primary-container text-label-sm leading-tight drop-shadow-sm">
+            After you log on, you can add or change accounts.<br/>
+            Just go to Control Panel and click User Accounts.
+        </div>
+</div>
+</body></html>

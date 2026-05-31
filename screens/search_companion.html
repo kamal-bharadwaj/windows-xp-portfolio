@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Search Companion</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#e6e3d2",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#f1eedd",
+                    "surface-container-low": "#f7f4e3",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#1c1c12",
+                    "outline": "#737686",
+                    "on-secondary-fixed": "#002204",
+                    "secondary-container": "#aaf5a5",
+                    "outline-variant": "#c3c6d6",
+                    "surface-bright": "#fdfae8",
+                    "primary-fixed": "#dbe1ff",
+                    "surface-tint": "#1355d2",
+                    "surface": "#fdfae8",
+                    "secondary-fixed-dim": "#8fd88b",
+                    "on-secondary-container": "#2d7232",
+                    "on-tertiary-fixed-variant": "#802900",
+                    "primary-fixed-dim": "#b3c5ff",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#0046b8",
+                    "on-tertiary-fixed": "#380d00",
+                    "on-primary-container": "#e0e5ff",
+                    "inverse-surface": "#313126",
+                    "surface-container-highest": "#e6e3d2",
+                    "primary-container": "#245edb",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed": "#aaf5a5",
+                    "on-secondary-fixed-variant": "#045317",
+                    "surface-container-high": "#ece9d8",
+                    "on-primary-fixed-variant": "#003ea6",
+                    "on-tertiary-container": "#ffe0d5",
+                    "background": "#fdfae8",
+                    "on-primary-fixed": "#00174a",
+                    "inverse-on-surface": "#f4f1e0",
+                    "on-surface-variant": "#434654",
+                    "on-surface": "#1c1c12",
+                    "secondary": "#266c2d",
+                    "inverse-primary": "#b3c5ff",
+                    "error": "#ba1a1a",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#8e2f00",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb59a",
+                    "tertiary-fixed": "#ffdbcf",
+                    "tertiary-container": "#b73e00",
+                    "surface-dim": "#dddaca",
+                    "on-secondary": "#ffffff",
+                    
+                    "xp-blue-dark": "#0058ee",
+                    "xp-blue-light": "#3784ff",
+                    "xp-blue-border": "#003ea6",
+                    "xp-red": "#ce4a2d",
+                    "xp-bg": "#ece9d8",
+                    "xp-sidebar-top": "#5b7edc",
+                    "xp-sidebar-bottom": "#1b338e",
+                    "xp-sidebar-bg": "#eef3ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem",
+                    "xp": "8px"
+            },
+            "spacing": {
+                    "gutter": "8px",
+                    "unit": "4px",
+                    "edge-margin": "4px",
+                    "container-padding": "12px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Arimo"],
+                    "heading-lg-mobile": ["Arimo"],
+                    "heading-lg": ["Arimo"],
+                    "title-bar": ["Arimo"],
+                    "button-text": ["Arimo"],
+                    "body-md": ["Arimo"]
+            },
+            "fontSize": {
+                    "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "400"}],
+                    "heading-lg-mobile": ["16px", {"lineHeight": "22px", "fontWeight": "700"}],
+                    "heading-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "title-bar": ["13px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "700"}],
+                    "button-text": ["12px", {"lineHeight": "12px", "fontWeight": "400"}],
+                    "body-md": ["12px", {"lineHeight": "16px", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { background-image: radial-gradient(#d4d0c8 1px, transparent 1px); background-size: 20px 20px; background-color: #3a6ea5; }
+        .window-shadow { box-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .inset-bevel { border-top: 2px solid #a0a0a0; border-left: 2px solid #a0a0a0; border-right: 2px solid #ffffff; border-bottom: 2px solid #ffffff; }
+        .outset-bevel { border-top: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #808080; border-bottom: 1px solid #808080; }
+        .xp-button { background: linear-gradient(to bottom, #f4f4f4, #d4d0c8); border: 1px solid #003ea6; border-radius: 3px; }
+        .xp-button:active { background: #d4d0c8; box-shadow: inset 1px 1px 2px rgba(0,0,0,0.3); }
+        .menu-item:hover { background-color: #316ac5; color: white; }
+    </style>
+</head>
+<body class="h-full w-full flex items-center justify-center p-4">
+<!-- Main Window Container -->
+<div class="flex flex-col w-[800px] h-[600px] bg-xp-bg rounded-t-xp border border-xp-blue-border window-shadow overflow-hidden">
+<!-- TopAppBar (from JSON) -->
+<div class="flex justify-between items-center h-[30px] px-2 w-full bg-gradient-to-b from-xp-blue-dark to-xp-blue-light border-b border-xp-blue-border shadow-[inset_1px_1px_0px_#3784ff] rounded-t-xl">
+<div class="flex items-center gap-1 font-title-bar text-title-bar text-on-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">search</span>
+<span class="drop-shadow-[1px_1px_1px_rgba(0,0,0,0.8)] ml-1">Search Results</span>
+</div>
+<div class="flex gap-unit">
+<button class="w-[22px] h-[22px] bg-white rounded-[2px] border border-white shadow-[inset_0px_-2px_4px_rgba(0,0,0,0.2)] flex items-center justify-center hover:brightness-110 active:brightness-90 transition-none">
+<span class="material-symbols-outlined text-[14px] text-black">minimize</span>
+</button>
+<button class="w-[22px] h-[22px] bg-white rounded-[2px] border border-white shadow-[inset_0px_-2px_4px_rgba(0,0,0,0.2)] flex items-center justify-center hover:brightness-110 active:brightness-90 transition-none">
+<span class="material-symbols-outlined text-[14px] text-black">web_asset</span>
+</button>
+<button class="w-[22px] h-[22px] bg-xp-red rounded-[2px] border border-white shadow-[inset_0px_-2px_4px_rgba(0,0,0,0.3)] flex items-center justify-center hover:brightness-110 active:brightness-90 transition-none">
+<span class="material-symbols-outlined text-[14px] text-white font-bold">close</span>
+</button>
+</div>
+</div>
+<!-- Menu Bar -->
+<div class="h-[24px] flex items-center px-1 border-b border-white bg-xp-bg font-body-md text-body-md text-on-surface">
+<div class="px-2 py-[2px] menu-item cursor-default"><u>F</u>ile</div>
+<div class="px-2 py-[2px] menu-item cursor-default"><u>E</u>dit</div>
+<div class="px-2 py-[2px] menu-item cursor-default"><u>V</u>iew</div>
+<div class="px-2 py-[2px] menu-item cursor-default">F<u>a</u>vorites</div>
+<div class="px-2 py-[2px] menu-item cursor-default"><u>T</u>ools</div>
+<div class="px-2 py-[2px] menu-item cursor-default"><u>H</u>elp</div>
+</div>
+<!-- Standard Buttons Toolbar -->
+<div class="h-[38px] flex items-center px-1 border-b border-outline-variant bg-xp-bg gap-1 font-body-md text-body-md text-on-surface">
+<button class="flex items-center gap-1 px-1 h-[32px] hover:border hover:border-outline-variant hover:bg-white rounded-[2px] border border-transparent">
+<span class="material-symbols-outlined text-gray-400 text-[24px]">arrow_back</span>
+<span class="text-gray-400">Back</span>
+<span class="material-symbols-outlined text-gray-400 text-[12px]">arrow_drop_down</span>
+</button>
+<div class="w-[2px] h-[24px] bg-outline-variant mx-1 border-r border-white"></div>
+<button class="w-[32px] h-[32px] flex items-center justify-center hover:border hover:border-outline-variant hover:bg-white rounded-[2px] border border-transparent">
+<span class="material-symbols-outlined text-[20px] text-gray-600">arrow_forward</span>
+</button>
+<button class="w-[32px] h-[32px] flex items-center justify-center hover:border hover:border-outline-variant hover:bg-white rounded-[2px] border border-transparent">
+<span class="material-symbols-outlined text-[20px] text-gray-600" style="font-variation-settings: 'FILL' 1;">folder_open</span>
+</button>
+<div class="w-[2px] h-[24px] bg-outline-variant mx-1 border-r border-white"></div>
+<button class="flex items-center gap-1 px-2 h-[32px] bg-white border border-outline-variant shadow-[inset_1px_1px_3px_rgba(0,0,0,0.1)] rounded-[2px]">
+<span class="material-symbols-outlined text-[20px] text-xp-blue-dark" style="font-variation-settings: 'FILL' 1;">search</span>
+<span>Search</span>
+</button>
+<button class="flex items-center gap-1 px-2 h-[32px] hover:border hover:border-outline-variant hover:bg-white rounded-[2px] border border-transparent">
+<span class="material-symbols-outlined text-[20px] text-yellow-500" style="font-variation-settings: 'FILL' 1;">folder</span>
+<span>Folders</span>
+</button>
+</div>
+<!-- Address Bar -->
+<div class="h-[28px] flex items-center px-1 border-b border-outline-variant bg-xp-bg font-body-md text-body-md">
+<span class="text-gray-500 px-2">Address</span>
+<div class="flex-grow flex bg-white inset-bevel h-[22px] items-center px-1">
+<span class="material-symbols-outlined text-[16px] text-xp-blue-dark mr-1">search</span>
+<span>Search Results</span>
+</div>
+<button class="flex items-center gap-1 ml-2 h-[22px] px-2 xp-button">
+<span class="material-symbols-outlined text-[14px] text-green-600">arrow_forward</span>
+<span>Go</span>
+</button>
+</div>
+<!-- Main Content Area -->
+<div class="flex-grow flex overflow-hidden">
+<!-- Left Sidebar (Search Companion) -->
+<div class="w-[250px] flex flex-col border-r border-outline-variant bg-xp-sidebar-bg h-full">
+<!-- Search Companion Header -->
+<div class="bg-gradient-to-r from-xp-sidebar-top to-xp-sidebar-bottom text-white px-3 py-1 font-heading-lg-mobile text-heading-lg-mobile flex justify-between items-center rounded-tr-[4px]">
+<span>Search Companion</span>
+<span class="material-symbols-outlined text-[16px] cursor-pointer hover:brightness-110">close</span>
+</div>
+<!-- Search Options Area -->
+<div class="flex-grow flex flex-col p-container-padding overflow-y-auto font-body-md text-body-md text-on-surface">
+<p class="font-bold mb-4">What do you want to search for?</p>
+<div class="flex flex-col gap-2 pl-2">
+<button class="flex items-start gap-2 text-left hover:text-xp-blue-light group">
+<span class="material-symbols-outlined text-[20px] text-green-600 mt-[2px] group-hover:text-xp-blue-light" style="font-variation-settings: 'FILL' 1;">image</span>
+<span class="underline group-hover:text-xp-blue-light text-blue-800">Pictures, music, or video</span>
+</button>
+<button class="flex items-start gap-2 text-left hover:text-xp-blue-light group">
+<span class="material-symbols-outlined text-[20px] text-blue-500 mt-[2px] group-hover:text-xp-blue-light" style="font-variation-settings: 'FILL' 1;">description</span>
+<span class="underline group-hover:text-xp-blue-light text-blue-800">Documents (word processing, spreadsheet, etc.)</span>
+</button>
+<button class="flex items-start gap-2 text-left hover:text-xp-blue-light group">
+<span class="material-symbols-outlined text-[20px] text-yellow-600 mt-[2px] group-hover:text-xp-blue-light" style="font-variation-settings: 'FILL' 1;">folder</span>
+<span class="underline group-hover:text-xp-blue-light text-blue-800">All files and folders</span>
+</button>
+<button class="flex items-start gap-2 text-left hover:text-xp-blue-light group mt-4">
+<span class="material-symbols-outlined text-[20px] text-gray-500 mt-[2px] group-hover:text-xp-blue-light">computer</span>
+<span class="underline group-hover:text-xp-blue-light text-blue-800">Computers or people</span>
+</button>
+<button class="flex items-start gap-2 text-left hover:text-xp-blue-light group">
+<span class="material-symbols-outlined text-[20px] text-gray-500 mt-[2px] group-hover:text-xp-blue-light">language</span>
+<span class="underline group-hover:text-xp-blue-light text-blue-800">Information in Help and Support Center</span>
+</button>
+</div>
+<div class="mt-8 border-t border-blue-200 pt-4">
+<p class="text-gray-600 mb-2">You may also want to...</p>
+<button class="flex items-start gap-2 text-left hover:text-xp-blue-light group">
+<span class="material-symbols-outlined text-[16px] text-blue-500 mt-[2px]">search</span>
+<span class="underline group-hover:text-xp-blue-light text-blue-800">Search the Internet</span>
+</button>
+<button class="flex items-start gap-2 text-left hover:text-xp-blue-light group mt-1">
+<span class="material-symbols-outlined text-[16px] text-blue-500 mt-[2px]">settings</span>
+<span class="underline group-hover:text-xp-blue-light text-blue-800">Change preferences</span>
+</button>
+</div>
+</div>
+<!-- Dog Animation Area -->
+<div class="h-[120px] w-full flex items-end justify-center relative bg-gradient-to-t from-white to-transparent">
+<img alt="Rover Dog Companion" class="w-[80px] h-[80px] object-cover rounded-full border-2 border-white shadow-md mb-2 bg-yellow-100" data-alt="A 3D rendering of a cartoonish yellow dog sitting attentively. The style is reminiscent of early 2000s desktop companions, featuring bright, flat shading and a slightly glossy texture. The background is isolated, allowing the dog to stand out as a helpful, skeuomorphic UI element in a retro computing interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDo5HS5Ke1L0Tg3C6HsjIeOqWEM9WeJWz6Lw6o60YNblCBoat5OqXI83KVRfxk3Wcma9Rqx80F4aMprMF0_PBfW1dB1N1XG3M8FBINnVZ33BG4NCONB1Yu25CeCwcELJXfJFRLQin_j3K0TU5zTfa5BGhRo-iKD6PjjWeMEcLqzGSVeSDky2GEcfxPvXhysJPciqoMXkFMmu0VRM-8tni7gRXPeSQdbvb6ZZ3BTEi1GsVyRr9EnX3_UikVERMFQVCx96gkjZ6NqZoQ" style="mask-image: linear-gradient(to top, black 80%, transparent);"/>
+<!-- Speech bubble tail -->
+<div class="absolute top-0 right-10 w-0 h-0 border-l-[10px] border-l-transparent border-t-[15px] border-t-white border-r-[10px] border-r-transparent transform -rotate-45"></div>
+</div>
+</div>
+<!-- Main Canvas Area (Empty White) -->
+<div class="flex-grow bg-white inset-bevel m-1 relative overflow-hidden">
+<div class="p-container-padding font-body-md text-body-md text-gray-400 text-center mt-20">
+                    To start a search, follow the instructions in the left pane.
+                </div>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,52 @@
+## Stitch Instructions
+
+Get the images and code for the following Stitch project's screens:
+
+## Project
+Title: Retro XP Portfolio
+ID: 4534124700024861429
+
+## Screens:
+1. Boot Loading Screen
+    ID: 2926734fd9ed4abf9dc151e04794e047
+
+2. Login Screen
+    ID: 72b38202f25e47d6aa35852103bfbc56
+
+3. My Computer Window
+    ID: 7b27fa0ef86b490a88af80f91b363d7c
+
+4. Search Companion
+    ID: 996ad135dfc047f28b64b8e13ba579c9
+
+5. Portfolio Admin Panel
+    ID: d00f520147a445cd9f18b9024b70ede9
+
+6. Projects Folder
+    ID: 306869763e204fb5a07148acad082c86
+
+7. About Me Window
+    ID: 7404ae9a7f50475eafa84f9e2da80eec
+
+8. Desktop Home
+    ID: c7bc38df23fd479996599590867dd202
+
+9. Contact Me Window
+    ID: e1e51fffa2834e1bac2737c47bc6188a
+
+10. XP Loader Animation
+    ID: f983d2923d3b4924a0e2944572068255
+
+11. Start Menu Open
+    ID: 85d07d6fbb0c44a2b94a308c73d8da3b
+
+12. A collection of Windows XP style system icons: a floppy disk (3.5 inch), a CD-ROM, a magnifying glass for search, a green 'plus' sign, and a yellow folder. Icons should have the characteristic 3D perspective and soft shadows of the 2001 OS.
+    ID: f959258d77954eab9bc9b60db4cdb31b
+
+13. Classic Windows XP Logo
+    ID: 78b980470c3445c7a1b3bc59a95e6abd
+
+14. A set of classic Windows XP style desktop icons: 'My Computer' (beige CRT monitor), 'My Documents' (yellow folder with a document inside), 'Recycle Bin' (wire mesh trash can, both empty and full versions), and 'Internet Explorer' (the blue 'e' with a gold ring). 3D beveled style, early 2000s aesthetic, clean white background.
+    ID: 8e9b0cc2aa794bb6bc6e9954041b1fe8
+
+Use a utility like `curl -L` to download the hosted URLs.

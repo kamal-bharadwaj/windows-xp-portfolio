@@ -1,0 +1,97 @@
+.wrap { padding: 16px; display: flex; flex-direction: column; gap: 12px; min-height: 0; }
+.denied {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 12px;
+  padding: 32px;
+  text-align: center;
+}
+.deniedTitle { font-size: 18px; font-weight: 700; color: #ba1a1a; }
+.deniedMsg { font-size: 12px; color: #434654; line-height: 1.7; }
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #c3c6d6;
+}
+.title { font-size: 16px; font-weight: 700; color: #245edb; }
+.subtitle { font-size: 11px; color: #434654; }
+.refreshBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  background: linear-gradient(180deg, #f8f8f8 0%, #d4d0c8 50%, #b8b4ab 100%);
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #737686;
+  border-bottom: 1px solid #737686;
+  font-size: 11px;
+  cursor: pointer;
+  font-family: 'Arimo', sans-serif;
+  margin-left: auto;
+}
+.refreshBtn:hover { filter: brightness(1.05); }
+.loadRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #434654;
+  padding: 16px;
+}
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #c3c6d6;
+  border-top-color: #245edb;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+.errBox {
+  background: #fff0f0;
+  border: 1px solid #ba1a1a;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: #ba1a1a;
+}
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 32px;
+  color: #737686;
+  font-size: 12px;
+  text-align: center;
+}
+.messageList { display: flex; flex-direction: column; gap: 8px; }
+.card {
+  background: #fff;
+  border: 1px solid #c3c6d6;
+  padding: 10px 14px;
+  border-left: 3px solid #245edb;
+}
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+  gap: 8px;
+}
+.msgName { font-weight: 700; color: #245edb; font-size: 12px; margin-right: 6px; }
+.msgEmail { color: #737686; font-size: 11px; }
+.msgTime { color: #737686; font-size: 10px; flex-shrink: 0; white-space: nowrap; }
+.cardBody {
+  font-size: 12px;
+  color: #1c1c12;
+  line-height: 1.6;
+  border-top: 1px solid #f1eedd;
+  padding-top: 8px;
+  white-space: pre-wrap;
+}
+@keyframes spin { to { transform: rotate(360deg); } }

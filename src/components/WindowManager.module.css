@@ -1,0 +1,10 @@
+.layer {
+  position: absolute;
+  inset: 0;
+  bottom: 30px;
+  pointer-events: none;
+  z-index: 500;
+}
+.layer > * {
+  pointer-events: auto;
+}

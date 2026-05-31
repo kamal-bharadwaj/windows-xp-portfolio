@@ -1,0 +1,114 @@
+.menu {
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+  width: 400px;
+  background: #fff;
+  border: 1px solid #0046b8;
+  box-shadow: 3px 0 16px rgba(0,0,0,0.5), 0 -2px 8px rgba(0,0,0,0.3);
+  border-radius: 8px 8px 0 0;
+  z-index: 9999;
+  overflow: hidden;
+  animation: menuSlide 0.15s ease-out;
+}
+.header {
+  background: linear-gradient(90deg, #245edb 0%, #3784ff 100%);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 60px;
+}
+.avatar {
+  width: 48px;
+  height: 48px;
+  background: #fff;
+  border: 2px solid rgba(255,255,255,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.name {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+.role {
+  color: #b3c5ff;
+  font-size: 11px;
+  margin-top: 2px;
+}
+.body {
+  display: flex;
+  min-height: 300px;
+}
+.left {
+  flex: 1;
+  padding: 6px 0;
+  border-right: 1px solid #c3c6d6;
+}
+.right {
+  width: 170px;
+  background: #f1eedd;
+  padding: 6px 0;
+}
+.sectionTitle {
+  font-size: 10px;
+  color: #737686;
+  padding: 4px 16px 2px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+.sep {
+  height: 1px;
+  background: #c3c6d6;
+  margin: 4px 12px;
+}
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 16px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  font-family: 'Arimo', sans-serif;
+  transition: background 0.1s;
+}
+.menuItem:hover {
+  background: #245edb;
+  color: #fff;
+}
+.menuItem:hover .material-symbols-outlined { color: #fff !important; }
+.itemLabel { font-size: 12px; font-weight: 700; color: inherit; }
+.itemSub { font-size: 11px; color: #737686; }
+.menuItem:hover .itemSub { color: #b3c5ff; }
+.rightLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  font-size: 12px;
+  color: #0046b8;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.1s;
+}
+.rightLink:hover {
+  background: rgba(0, 70, 184, 0.1);
+  text-decoration: underline;
+}
+@keyframes menuSlide {
+  from { transform: translateY(10px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+@media (max-width: 600px) {
+  .menu { width: 100%; border-radius: 8px 8px 0 0; }
+  .right { display: none; }
+}

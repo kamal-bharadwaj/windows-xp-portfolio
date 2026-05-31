@@ -1,0 +1,23 @@
+.toast {
+  position: fixed;
+  bottom: calc(30px + 8px);
+  right: 8px;
+  background: #ece9d8;
+  border: 1px solid #737686;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+  padding: 8px 16px;
+  font-size: 12px;
+  max-width: 320px;
+  z-index: 99998;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Arimo', sans-serif;
+  color: #1c1c12;
+  animation: toastIn 0.2s ease;
+}
+.msg { line-height: 1.4; }
+@keyframes toastIn {
+  from { transform: translateY(16px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}

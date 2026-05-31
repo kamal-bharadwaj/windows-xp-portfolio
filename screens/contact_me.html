@@ -1,0 +1,297 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Portfolio.exe - Contact Me</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#1355d2",
+                        "surface-container-high": "#ece9d8",
+                        "secondary-container": "#aaf5a5",
+                        "tertiary-fixed": "#ffdbcf",
+                        "on-tertiary-fixed-variant": "#802900",
+                        "on-tertiary-fixed": "#380d00",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "on-secondary-container": "#2d7232",
+                        "on-primary-container": "#e0e5ff",
+                        "on-tertiary-container": "#ffe0d5",
+                        "outline": "#737686",
+                        "primary": "#0046b8",
+                        "secondary": "#266c2d",
+                        "surface-container-low": "#f7f4e3",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#c3c6d6",
+                        "inverse-on-surface": "#f4f1e0",
+                        "surface-container": "#f1eedd",
+                        "on-secondary-fixed": "#002204",
+                        "tertiary-container": "#b73e00",
+                        "primary-container": "#245edb",
+                        "primary-fixed": "#dbe1ff",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#8e2f00",
+                        "on-primary-fixed-variant": "#003ea6",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e6e3d2",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#fdfae8",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "surface": "#fdfae8",
+                        "on-primary-fixed": "#00174a",
+                        "background": "#fdfae8",
+                        "on-surface-variant": "#434654",
+                        "surface-variant": "#e6e3d2",
+                        "inverse-primary": "#b3c5ff",
+                        "on-background": "#1c1c12",
+                        "primary-fixed-dim": "#b3c5ff",
+                        "on-surface": "#1c1c12",
+                        "secondary-fixed-dim": "#8fd88b",
+                        "surface-dim": "#dddaca",
+                        "inverse-surface": "#313126",
+                        "secondary-fixed": "#aaf5a5",
+                        "on-secondary-fixed-variant": "#045317"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "edge-margin": "4px",
+                        "gutter": "8px",
+                        "container-padding": "12px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Arimo"],
+                        "heading-lg": ["Arimo"],
+                        "title-bar": ["Arimo"],
+                        "button-text": ["Arimo"],
+                        "body-md": ["Arimo"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "400"}],
+                        "heading-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "title-bar": ["13px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "700"}],
+                        "button-text": ["12px", {"lineHeight": "12px", "fontWeight": "400"}],
+                        "body-md": ["12px", {"lineHeight": "16px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>.skeuo-raised {
+    box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.8), 1px 1px 0 rgba(0, 0, 0, 0.2);
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #808080;
+    border-bottom: 1px solid #808080
+    }
+.skeuo-sunken {
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.3);
+    border-top: 1px solid #808080;
+    border-left: 1px solid #808080;
+    border-right: 1px solid #fff;
+    border-bottom: 1px solid #fff
+    }
+.btn-luna {
+    background: linear-gradient(to bottom, #f0f0f0 0%, #d4d0c8 100%);
+    transition: all 0.1s
+    }
+.btn-luna:active {
+    background: linear-gradient(to top, #f0f0f0 0%, #d4d0c8 100%);
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.3);
+    transform: translate(1px, 1px)
+    }
+.btn-green {
+    background: linear-gradient(to bottom, #76d376 0%, #3e9c3e 100%);
+    color: white;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5)
+    }
+.btn-green:active {
+    background: linear-gradient(to top, #76d376 0%, #3e9c3e 100%)
+    }
+.window-frame {
+    background-color: #ece9d8;
+    border: 3px solid #0058ee;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3)
+    }
+.scroll-thumb {
+    background: #d4d0c8;
+    border: 1px solid #fff;
+    box-shadow: inset -1px -1px 0 #808080
+    }
+.desktop-bg {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuB4kszOWajYJx3Rn3l5RKmpNAfnQdPzpJm8YddufVnwbjLgw5ZaDmNkeoNk8w0Qqgp62LBbnebPQlvlnQoYPwlEwmb_2WbJRdvk8HroJs1hz7oXmkojUsTsDekd2L7AkYDSBAGUa-CtdquPlPBaMDjtgjze5MA3wJsPZLXoDVLc1Yc9yGyLvg6NsU_FJQjuS_33VTxAKzxOd1jkLkHqDuaLOf1Lpa6TNMXZrfkQkAUJ_nxWNygxTfxi8wnRnEMGk3Rs54Zo2gKYuhE);
+    background-size: cover;
+    background-position: center
+    }</style>
+</head>
+<body class="h-screen w-screen overflow-hidden flex flex-col font-body-md text-on-surface desktop-bg" data-alt="A lush green rolling landscape under a brilliant blue sky with wispy white clouds, evoking a sense of calm and nostalgia. The lighting is bright and high-contrast, reminiscent of early 2000s desktop wallpapers, with vibrant saturated greens and a deep sapphire blue sky.">
+<!-- Top Navigation Bar (Shared Component: TopAppBar) -->
+<header class="bg-primary-container dark:bg-primary-container text-on-primary dark:text-on-primary font-title-bar text-title-bar docked full-width top rounded-t-xl bg-gradient-to-b from-[#0058ee] to-[#3784ff] border-b border-primary-fixed shadow-[inset_1px_1px_0_rgba(255,255,255,0.4)] flex justify-between items-center w-full px-2 h-[30px] z-50">
+<div class="flex items-center gap-3">
+<span class="font-title-bar text-title-bar text-on-primary font-bold">Portfolio.exe</span>
+<nav class="hidden md:flex gap-4">
+<a class="text-on-primary-container opacity-80 hover:brightness-110" href="#">File</a>
+<a class="text-on-primary-container opacity-80 hover:brightness-110" href="#">Edit</a>
+<a class="text-on-primary-container opacity-80 hover:brightness-110" href="#">View</a>
+<a class="text-on-primary-container opacity-80 hover:brightness-110" href="#">Help</a>
+</nav>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-[22px] h-[22px] skeuo-raised flex items-center justify-center bg-[#245edb] hover:brightness-110 active:translate-y-[1px]">
+<span class="material-symbols-outlined text-[14px]" data-icon="remove">remove</span>
+</button>
+<button class="w-[22px] h-[22px] skeuo-raised flex items-center justify-center bg-[#245edb] hover:brightness-110 active:translate-y-[1px]">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_box_outline_blank">check_box_outline_blank</span>
+</button>
+<button class="w-[22px] h-[22px] skeuo-raised flex items-center justify-center bg-[#ce4a2d] hover:brightness-110 active:translate-y-[1px]">
+<span class="material-symbols-outlined text-[14px] font-bold" data-icon="close">close</span>
+</button>
+</div>
+</header>
+<!-- Main Desktop Area -->
+<main class="flex-grow relative flex items-center justify-center p-4">
+<!-- Contact Me Window (Outlook Express Style) -->
+<div class="window-frame rounded-t-lg w-full max-w-2xl flex flex-col shadow-2xl animate-in zoom-in duration-300">
+<!-- Window Title Bar -->
+<div class="h-[30px] bg-gradient-to-b from-[#0058ee] to-[#3784ff] flex justify-between items-center px-2 rounded-t-[5px]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-white text-[16px]" data-icon="mail">mail</span>
+<span class="text-white font-title-bar text-title-bar">New Message - Contact Administrator</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-[21px] h-[21px] skeuo-raised flex items-center justify-center bg-[#3784ff] text-white hover:brightness-110">
+<span class="material-symbols-outlined text-[12px]" data-icon="remove">remove</span>
+</button>
+<button class="w-[21px] h-[21px] skeuo-raised flex items-center justify-center bg-[#3784ff] text-white hover:brightness-110">
+<span class="material-symbols-outlined text-[12px]" data-icon="check_box_outline_blank">check_box_outline_blank</span>
+</button>
+<button class="w-[21px] h-[21px] skeuo-raised flex items-center justify-center bg-[#ce4a2d] text-white hover:brightness-110">
+<span class="material-symbols-outlined text-[12px] font-bold" data-icon="close">close</span>
+</button>
+</div>
+</div>
+<!-- Toolbar -->
+<div class="p-2 border-b border-[#d4d0c8] flex gap-4 bg-surface-container-high">
+<button class="flex flex-col items-center gap-1 px-3 py-1 hover:bg-black/5 rounded group active:translate-y-[1px]">
+<span class="material-symbols-outlined text-secondary" data-icon="send">send</span>
+<span class="text-[10px]">Send</span>
+</button>
+<div class="w-[1px] bg-[#808080] mx-1 h-10"></div>
+<button class="flex flex-col items-center gap-1 px-3 py-1 hover:bg-black/5 rounded group active:translate-y-[1px]">
+<span class="material-symbols-outlined text-[#808080]" data-icon="attach_file">attach_file</span>
+<span class="text-[10px]">Attach</span>
+</button>
+<button class="flex flex-col items-center gap-1 px-3 py-1 hover:bg-black/5 rounded group active:translate-y-[1px]">
+<span class="material-symbols-outlined text-[#808080]" data-icon="spellcheck">spellcheck</span>
+<span class="text-[10px]">Check</span>
+</button>
+</div>
+<!-- Address Fields -->
+<div class="p-container-padding space-y-2 bg-surface-container">
+<div class="flex items-center gap-2">
+<span class="w-16 text-right text-label-sm font-label-sm">To:</span>
+<div class="flex-grow bg-white skeuo-sunken px-2 py-1 text-body-md font-body-md">
+                        Administrator &lt;admin@portfolio.exe&gt;
+                    </div>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-16 text-right text-label-sm font-label-sm">Cc:</span>
+<input class="flex-grow bg-white skeuo-sunken px-2 py-1 text-body-md font-body-md focus:outline-none border-none" type="text">
+</div>
+<div class="flex items-center gap-2">
+<span class="w-16 text-right text-label-sm font-label-sm">Subject:</span>
+<input class="flex-grow bg-white skeuo-sunken px-2 py-1 text-body-md font-body-md focus:outline-none border-none" placeholder="Inquiry regarding services" type="text">
+</div>
+</div>
+<!-- Message Body -->
+<div class="flex-grow p-container-padding bg-surface-container relative">
+<div class="w-full h-full bg-white skeuo-sunken p-2 min-h-[250px] relative">
+<textarea class="w-full h-full resize-none border-none focus:ring-0 text-body-md font-body-md" placeholder="Type your message here..."></textarea>
+<!-- Paperclip Decorative Overlay -->
+<div class="absolute top-2 right-2 opacity-20 pointer-events-none">
+<span class="material-symbols-outlined text-[48px]" data-icon="attach_file">attach_file</span>
+</div>
+</div>
+</div>
+<!-- Footer Buttons -->
+<div class="p-container-padding flex justify-end gap-gutter bg-surface-container-high border-t border-[#d4d0c8]">
+<button class="px-8 py-1 skeuo-raised btn-luna btn-green font-button-text text-button-text">Send</button>
+<button class="px-8 py-1 skeuo-raised btn-luna font-button-text text-button-text">Cancel</button>
+</div>
+</div>
+</main>
+<!-- Taskbar (Shared Component: BottomNavBar) -->
+<footer class="bg-primary dark:bg-primary text-on-primary dark:text-on-primary font-button-text text-button-text docked full-width bottom-0 bg-gradient-to-b from-[#245edb] to-[#1355d2] border-t-2 border-[#1355d2] shadow-lg fixed bottom-0 left-0 w-full z-50 flex justify-between items-center h-[30px] px-0">
+<div class="flex items-center h-full">
+<!-- Start Button -->
+<button class="flex items-center gap-2 bg-secondary dark:bg-secondary-container text-on-secondary dark:text-on-secondary-container rounded-r-full px-4 py-1 italic font-black shadow-[inset_2px_2px_4px_rgba(0,0,0,0.3)] h-full hover:brightness-110 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="window">window</span>
+<span>Start</span>
+</button>
+<!-- Taskbar Items -->
+<div class="flex items-center h-full ml-2 gap-1 overflow-x-hidden">
+<div class="flex items-center gap-2 bg-primary-container dark:bg-primary-container text-on-primary-container px-3 py-1 rounded-sm border-r border-b border-black/20 shadow-[1px_1px_0_rgba(255,255,255,0.3)_inset] min-w-[120px] max-w-[160px] h-[24px]">
+<span class="material-symbols-outlined text-[16px]" data-icon="folder_open">folder_open</span>
+<span class="truncate">Portfolio</span>
+</div>
+<div class="flex items-center gap-2 bg-secondary dark:bg-secondary-container text-on-secondary dark:text-on-secondary-container rounded-r-full px-4 py-1 italic font-black shadow-[inset_2px_2px_4px_rgba(0,0,0,0.3)] min-w-[120px] max-w-[160px] h-[24px]">
+<span class="material-symbols-outlined text-[16px]" data-icon="mail">mail</span>
+<span class="truncate italic">Contact</span>
+</div>
+</div>
+</div>
+<!-- Tray -->
+<div class="flex items-center h-full bg-[#0997ff] border-l border-[#0058ee] shadow-[inset_1px_1px_0_rgba(255,255,255,0.3)] px-3 gap-3">
+<div class="flex gap-1 items-center">
+<span class="material-symbols-outlined text-[14px]" data-icon="terminal">terminal</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span>
+</div>
+<span class="font-button-text text-button-text text-white" id="clock">12:00 PM</span>
+</div>
+</footer>
+<script>
+        // Clock functionality
+        function updateClock() {
+            const now = new Date();
+            let hours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            document.getElementById('clock').textContent = `${hours}:${minutes} ${ampm}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Simple button active state visual (skeuomorphic shift)
+        document.querySelectorAll('.skeuo-raised').forEach(btn => {
+            btn.addEventListener('mousedown', () => {
+                btn.style.boxShadow = "inset 1px 1px 2px rgba(0,0,0,0.4)";
+                btn.style.borderTop = "1px solid #808080";
+                btn.style.borderLeft = "1px solid #808080";
+                btn.style.borderRight = "1px solid #ffffff";
+                btn.style.borderBottom = "1px solid #ffffff";
+            });
+            btn.addEventListener('mouseup', () => {
+                btn.style.boxShadow = "inset 1px 1px 0 rgba(255,255,255,0.8), 1px 1px 0 rgba(0,0,0,0.2)";
+                btn.style.borderTop = "1px solid #ffffff";
+                btn.style.borderLeft = "1px solid #ffffff";
+                btn.style.borderRight = "1px solid #808080";
+                btn.style.borderBottom = "1px solid #808080";
+            });
+        });
+    </script>
+</body></html>

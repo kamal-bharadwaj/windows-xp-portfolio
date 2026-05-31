@@ -1,0 +1,96 @@
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: linear-gradient(180deg, #245edb 0%, #3f8cf3 9%, #245edb 18%, #245edb 92%, #1941a5 100%);
+  border-top: 1px solid #1355d2;
+  display: flex;
+  align-items: center;
+  z-index: 9990;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.15);
+}
+.startBtn {
+  height: 100%;
+  padding: 0 18px 0 10px;
+  background: linear-gradient(180deg, #53bd53 0%, #6cce6c 6%, #3d9d3d 10%, #3d9d3d 90%, #2e7d32 100%);
+  border-right: 1px solid #1a5a1a;
+  border-radius: 0 10px 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 900;
+  font-style: italic;
+  font-family: 'Arimo', sans-serif;
+  cursor: pointer;
+  box-shadow: inset 2px 2px 4px rgba(255,255,255,0.4);
+  flex-shrink: 0;
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+  transition: filter 0.1s;
+}
+.startBtn:hover { filter: brightness(1.1); }
+.startActive {
+  box-shadow: inset 2px 2px 6px rgba(0,0,0,0.4);
+  filter: brightness(0.9);
+}
+.startLabel { letter-spacing: 0.5px; }
+.tasks {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 0 4px;
+  overflow: hidden;
+}
+.taskBtn {
+  height: 22px;
+  padding: 0 8px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(0,0,0,0.3);
+  border-radius: 2px;
+  color: #fff;
+  font-size: 11px;
+  font-family: 'Arimo', sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  max-width: 150px;
+  box-shadow: 1px 1px 0 rgba(255,255,255,0.15) inset;
+  transition: background 0.1s;
+  flex-shrink: 0;
+}
+.taskBtn:hover { background: rgba(255,255,255,0.2); }
+.taskActive {
+  background: rgba(0,0,0,0.2) !important;
+  box-shadow: inset 2px 2px 4px rgba(0,0,0,0.3) !important;
+  border-color: rgba(0,0,0,0.5) !important;
+}
+.taskLabel {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 110px;
+}
+.tray {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 10px;
+  background: rgba(0, 60, 160, 0.35);
+  border-left: 1px solid rgba(255,255,255,0.15);
+  box-shadow: inset 2px 0 4px rgba(0,0,0,0.2);
+  flex-shrink: 0;
+}
+.clock {
+  color: #fff;
+  font-size: 11px;
+  white-space: nowrap;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
