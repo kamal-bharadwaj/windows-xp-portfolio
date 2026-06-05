@@ -1,10 +1,11 @@
 'use client';
 import styles from './AboutWindow.module.css';
-import portfolioData from '@/lib/portfolioData';
-
-const { personal, awards } = portfolioData;
+import { usePortfolioData } from '@/lib/PortfolioContext';
 
 export default function AboutWindow({ openWindow }) {
+  const { data } = usePortfolioData();
+  const { personal, awards } = data;
+
   return (
     <div className={styles.wrap}>
       {/* Left Sidebar */}
@@ -17,11 +18,11 @@ export default function AboutWindow({ openWindow }) {
         </div>
         <div className={styles.infoBox}>
           <h3 className={styles.infoTitle}>System Info</h3>
-          <div className={styles.infoRow}><strong>Name:</strong> Kamal Kumar</div>
-          <div className={styles.infoRow}><strong>Role:</strong> CSE Student & Dev</div>
+          <div className={styles.infoRow}><strong>Name:</strong> {personal.name}</div>
+          <div className={styles.infoRow}><strong>Role:</strong> {personal.title}</div>
           <div className={styles.infoRow}><strong>Status:</strong> <span style={{ color: '#266c2d', fontWeight: 700 }}>● Online</span></div>
           <div className={styles.infoRow}><strong>SGPA:</strong> {personal.sgpa}</div>
-          <div className={styles.infoRow}><strong>Location:</strong> Agra, UP, India</div>
+          <div className={styles.infoRow}><strong>Location:</strong> {personal.location}</div>
         </div>
         <button className={styles.contactBtn} onClick={() => openWindow('contact')}>
           <span className="material-symbols-outlined" style={{ fontSize: 16, fontVariationSettings: "'FILL' 1" }}>mail</span>
@@ -40,7 +41,7 @@ export default function AboutWindow({ openWindow }) {
       {/* Right Content */}
       <div className={`${styles.main} xp-scroll`}>
         <div className={styles.section}>
-          <h2 className={styles.mainTitle}>About Kamal Kumar</h2>
+          <h2 className={styles.mainTitle}>About {personal.name}</h2>
           <p className={styles.bio}>{personal.bio}</p>
         </div>
 

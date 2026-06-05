@@ -10,6 +10,7 @@ import DesktopIcons from './DesktopIcons';
 import WindowManager from './WindowManager';
 import XPToast from './XPToast';
 import CursorTrail from './CursorTrail';
+import { PortfolioProvider } from '@/lib/PortfolioContext';
 import { onAuthChange, logout } from '@/lib/firebase';
 
 // ─── Window Registry ───────────────────────────────────────────
@@ -19,7 +20,7 @@ const WINDOWS = {
   skills:   { title: 'My Computer — Skills & Resume',    icon: 'computer',     defaultW: 740, defaultH: 560 },
   contact:  { title: 'Contact Me',                       icon: 'mail',         defaultW: 560, defaultH: 480 },
   search:   { title: 'Search Companion',                 icon: 'search',       defaultW: 380, defaultH: 480 },
-  admin:    { title: 'Portfolio Admin Panel',             icon: 'admin_panel_settings', defaultW: 700, defaultH: 500 },
+  admin:    { title: 'Portfolio Admin Panel',             icon: 'admin_panel_settings', defaultW: 850, defaultH: 600 },
 };
 
 export default function XPDesktop() {
@@ -142,6 +143,7 @@ export default function XPDesktop() {
 
       {/* ── Desktop ── */}
       {phase === 'desktop' && (
+        <PortfolioProvider>
         <div className={styles.desktop}>
           {/* Wallpaper */}
           <div className={styles.wallpaper} />
@@ -194,6 +196,7 @@ export default function XPDesktop() {
           {/* Toast */}
           <XPToast toast={toast} />
         </div>
+        </PortfolioProvider>
       )}
     </div>
   );

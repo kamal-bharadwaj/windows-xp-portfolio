@@ -1,13 +1,13 @@
 'use client';
 import { useState } from 'react';
 import styles from './SkillsWindow.module.css';
-import portfolioData from '@/lib/portfolioData';
-
-const { skills, education, experience } = portfolioData;
+import { usePortfolioData } from '@/lib/PortfolioContext';
 
 const TABS = ['Skills', 'Education', 'Experience'];
 
 export default function SkillsWindow() {
+  const { data } = usePortfolioData();
+  const { skills, education, experience } = data;
   const [activeTab, setActiveTab] = useState('Skills');
 
   return (

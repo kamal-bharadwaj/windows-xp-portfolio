@@ -1,42 +1,40 @@
 'use client';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import styles from './SearchWindow.module.css';
-import portfolioData from '@/lib/portfolioData';
-
-const { personal, skills, projects, education, experience, awards } = portfolioData;
-
-// Build a flat searchable index
-const buildIndex = () => {
-  const entries = [];
-  entries.push({ category: 'About', label: 'Name', value: personal.name });
-  entries.push({ category: 'About', label: 'Location', value: personal.location });
-  entries.push({ category: 'About', label: 'Email', value: personal.email });
-  entries.push({ category: 'About', label: 'Bio', value: personal.bio });
-
-  Object.entries(skills).forEach(([cat, items]) => {
-    items.forEach((s) => entries.push({ category: 'Skills', label: cat, value: s }));
-  });
-  projects.forEach((p) => {
-    entries.push({ category: 'Projects', label: p.title, value: p.description });
-    p.tags.forEach((t) => entries.push({ category: 'Projects', label: p.title, value: t }));
-    p.highlights.forEach((h) => entries.push({ category: 'Projects', label: p.title, value: h }));
-  });
-  education.forEach((e) => entries.push({ category: 'Education', label: e.degree, value: e.institution }));
-  experience.forEach((e) => entries.push({ category: 'Experience', label: e.role, value: e.org }));
-  awards.forEach((a) => entries.push({ category: 'Awards', label: 'Achievement', value: a.text }));
-  return entries;
-};
-
-const INDEX = buildIndex();
+import { usePortfolioData } from '@/lib/PortfolioContext';
 
 export default function SearchWindow({ openWindow }) {
-  const [query, setQuery] = useState('');
+  const { data } = usePortfolioData();
+  const { personal, skills, projects, education, experience, awards } = data;
+  const [queryText, setQueryText] = useState('');
   const [results, setResults] = useState([]);
   const [searched, setSearched] = useState(false);
 
+  // Build search index from live data
+  const INDEX = useMemo(() => {
+    const entries = [];
+    entries.push({ category: 'About', label: 'Name', value: personal.name });
+    entries.push({ category: 'About', label: 'Location', value: personal.location });
+    entries.push({ category: 'About', label: 'Email', value: personal.email });
+    entries.push({ category: 'About', label: 'Bio', value: personal.bio });
+
+    Object.entries(skills).forEach(([cat, items]) => {
+      items.forEach((s) => entries.push({ category: 'Skills', label: cat, value: s }));
+    });
+    projects.forEach((p) => {
+      entries.push({ category: 'Projects', label: p.title, value: p.description });
+      p.tags.forEach((t) => entries.push({ category: 'Projects', label: p.title, value: t }));
+      p.highlights.forEach((h) => entries.push({ category: 'Projects', label: p.title, value: h }));
+    });
+    education.forEach((e) => entries.push({ category: 'Education', label: e.degree, value: e.institution }));
+    experience.forEach((e) => entries.push({ category: 'Experience', label: e.role, value: e.org }));
+    awards.forEach((a) => entries.push({ category: 'Awards', label: 'Achievement', value: a.text }));
+    return entries;
+  }, [personal, skills, projects, education, experience, awards]);
+
   const doSearch = () => {
-    if (!query.trim()) return;
-    const q = query.toLowerCase();
+    if (!queryText.trim()) return;
+    const q = queryText.toLowerCase();
     const found = INDEX.filter(
       (e) => e.value.toLowerCase().includes(q) || e.label.toLowerCase().includes(q)
     );
@@ -71,8 +69,8 @@ export default function SearchWindow({ openWindow }) {
           <input
             type="text"
             className={styles.searchInput}
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            value={queryText}
+            onChange={(e) => setQueryText(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && doSearch()}
             placeholder="e.g. Python, DRDO, Sign Language..."
             id="search-input"
@@ -114,7 +112,7 @@ export default function SearchWindow({ openWindow }) {
           <div className={styles.suggestions}>
             <p className={styles.suggestTitle}>Try searching for:</p>
             {['Python', 'DRDO', 'Next.js', 'Sign Language', 'SGPA', 'Agra'].map((s) => (
-              <button key={s} className={styles.suggestChip} onClick={() => { setQuery(s); }}>
+              <button key={s} className={styles.suggestChip} onClick={() => { setQueryText(s); }}>
                 {s}
               </button>
             ))}

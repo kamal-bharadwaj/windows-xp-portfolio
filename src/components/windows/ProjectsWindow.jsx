@@ -1,11 +1,11 @@
 'use client';
 import { useState } from 'react';
 import styles from './ProjectsWindow.module.css';
-import portfolioData from '@/lib/portfolioData';
-
-const { projects } = portfolioData;
+import { usePortfolioData } from '@/lib/PortfolioContext';
 
 export default function ProjectsWindow() {
+  const { data } = usePortfolioData();
+  const { projects } = data;
   const [selected, setSelected] = useState(null);
 
   return (

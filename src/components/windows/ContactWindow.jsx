@@ -2,11 +2,11 @@
 import { useState } from 'react';
 import styles from './ContactWindow.module.css';
 import { submitContactMessage } from '@/lib/firebase';
-import portfolioData from '@/lib/portfolioData';
-
-const { personal } = portfolioData;
+import { usePortfolioData } from '@/lib/PortfolioContext';
 
 export default function ContactWindow({ showToast }) {
+  const { data } = usePortfolioData();
+  const { personal } = data;
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState('idle'); // idle | loading | success | error
 
@@ -48,17 +48,17 @@ export default function ContactWindow({ showToast }) {
           <div className={styles.cItem}>
             <span className="material-symbols-outlined" style={{ fontSize: 20, color: '#245edb', fontVariationSettings: "'FILL' 1" }}>location_on</span>
             <span className={styles.cLabel}>Location</span>
-            <span className={styles.cVal}>Agra, UP, India</span>
+            <span className={styles.cVal}>{personal.location}</span>
           </div>
           <a href={`https://${personal.linkedin}`} target="_blank" rel="noreferrer" className={styles.cItem}>
             <span className="material-symbols-outlined" style={{ fontSize: 20, color: '#245edb', fontVariationSettings: "'FILL' 1" }}>work</span>
             <span className={styles.cLabel}>LinkedIn</span>
-            <span className={styles.cVal}>kamal-bharadwj</span>
+            <span className={styles.cVal}>{personal.linkedin?.split('/').pop()}</span>
           </a>
           <a href={`https://${personal.github}`} target="_blank" rel="noreferrer" className={styles.cItem}>
             <span className="material-symbols-outlined" style={{ fontSize: 20, color: '#245edb', fontVariationSettings: "'FILL' 1" }}>code</span>
             <span className={styles.cLabel}>GitHub</span>
-            <span className={styles.cVal}>kamal_bharadwaj</span>
+            <span className={styles.cVal}>{personal.github?.split('/').pop()}</span>
           </a>
         </div>
       </aside>
@@ -77,51 +77,19 @@ export default function ContactWindow({ showToast }) {
 
         <div className={styles.field}>
           <label className={styles.label} htmlFor="contact-name">Your Name</label>
-          <input
-            id="contact-name"
-            name="name"
-            type="text"
-            className={styles.input}
-            value={form.name}
-            onChange={handle}
-            placeholder="John Doe"
-            disabled={status === 'loading'}
-          />
+          <input id="contact-name" name="name" type="text" className={styles.input} value={form.name} onChange={handle} placeholder="John Doe" disabled={status === 'loading'} />
         </div>
         <div className={styles.field}>
           <label className={styles.label} htmlFor="contact-email">Email Address</label>
-          <input
-            id="contact-email"
-            name="email"
-            type="email"
-            className={styles.input}
-            value={form.email}
-            onChange={handle}
-            placeholder="you@example.com"
-            disabled={status === 'loading'}
-          />
+          <input id="contact-email" name="email" type="email" className={styles.input} value={form.email} onChange={handle} placeholder="you@example.com" disabled={status === 'loading'} />
         </div>
         <div className={styles.field}>
           <label className={styles.label} htmlFor="contact-message">Message</label>
-          <textarea
-            id="contact-message"
-            name="message"
-            className={styles.textarea}
-            value={form.message}
-            onChange={handle}
-            placeholder="Hi Kamal, I'd like to..."
-            rows={5}
-            disabled={status === 'loading'}
-          />
+          <textarea id="contact-message" name="message" className={styles.textarea} value={form.message} onChange={handle} placeholder="Hi Kamal, I'd like to..." rows={5} disabled={status === 'loading'} />
         </div>
 
         <div className={styles.btnRow}>
-          <button
-            className={styles.sendBtn}
-            onClick={submit}
-            disabled={status === 'loading'}
-            id="contact-send-btn"
-          >
+          <button className={styles.sendBtn} onClick={submit} disabled={status === 'loading'} id="contact-send-btn">
             {status === 'loading'
               ? <><span className="material-symbols-outlined" style={{ fontSize: 16, animation: 'spin 0.7s linear infinite' }}>autorenew</span> Sending...</>
               : <><span className="material-symbols-outlined" style={{ fontSize: 16, fontVariationSettings: "'FILL' 1" }}>send</span> Send Message</>
