@@ -9,6 +9,7 @@ import StartMenu from './StartMenu';
 import DesktopIcons from './DesktopIcons';
 import WindowManager from './WindowManager';
 import XPToast from './XPToast';
+import CursorTrail from './CursorTrail';
 import { onAuthChange, logout } from '@/lib/firebase';
 
 // ─── Window Registry ───────────────────────────────────────────
@@ -46,6 +47,24 @@ export default function XPDesktop() {
     setToast({ msg, type });
     setTimeout(() => setToast(null), 3000);
   }, []);
+
+  const [cursorTrailEnabled, setCursorTrailEnabled] = useState(true);
+
+  useEffect(() => {
+    const stored = localStorage.getItem('xp_cursor_trail');
+    if (stored !== null) {
+      setCursorTrailEnabled(stored === 'true');
+    }
+  }, []);
+
+  const toggleCursorTrail = useCallback(() => {
+    setCursorTrailEnabled((prev) => {
+      const next = !prev;
+      localStorage.setItem('xp_cursor_trail', next.toString());
+      showToast(`Cursor Trails: ${next ? 'ON' : 'OFF'}`, 'success');
+      return next;
+    });
+  }, [showToast]);
 
   // ─── Open window ─────────────────────────────────────────────
   const openWindow = useCallback((id) => {
@@ -110,6 +129,9 @@ export default function XPDesktop() {
 
   return (
     <div className={styles.root}>
+      {/* Cursor Trails */}
+      {cursorTrailEnabled && <CursorTrail />}
+
       {/* ── Boot ── */}
       {phase === 'boot' && <BootScreen onDone={handleBootDone} />}
 
@@ -165,6 +187,8 @@ export default function XPDesktop() {
                 focusWindow(id);
               }
             }}
+            cursorTrailEnabled={cursorTrailEnabled}
+            onToggleCursorTrail={toggleCursorTrail}
           />
 
           {/* Toast */}
