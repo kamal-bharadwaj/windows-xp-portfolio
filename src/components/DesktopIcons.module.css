@@ -2,7 +2,7 @@
   position: absolute;
   top: 8px;
   left: 8px;
-  bottom: 34px;
+  bottom: 38px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -10,6 +10,8 @@
   gap: 4px;
   z-index: 10;
   pointer-events: auto;
+  max-height: calc(100vh - 50px);
+  overflow: hidden;
 }
 .icon {
   width: 80px;
@@ -32,8 +34,8 @@
   border-color: rgba(255,255,255,0.5);
 }
 .iconImg {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,4 +49,11 @@
   word-break: break-word;
   max-width: 76px;
   font-family: 'Arimo', sans-serif;
+}
+
+.iconPng {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  filter: drop-shadow(1px 2px 3px rgba(0,0,0,0.45));
 }

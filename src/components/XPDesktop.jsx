@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
+import gsap from 'gsap';
 import styles from './XPDesktop.module.css';
 import BootScreen from './BootScreen';
 import LoginScreen from './LoginScreen';
@@ -15,12 +16,12 @@ import { onAuthChange, logout } from '@/lib/firebase';
 
 // ─── Window Registry ───────────────────────────────────────────
 const WINDOWS = {
-  about:    { title: 'About Me — Portfolio.exe',         icon: 'person',       defaultW: 680, defaultH: 500 },
-  projects: { title: 'My Projects',                      icon: 'folder',       defaultW: 780, defaultH: 520 },
-  skills:   { title: 'My Computer — Skills & Resume',    icon: 'computer',     defaultW: 740, defaultH: 560 },
-  contact:  { title: 'Contact Me',                       icon: 'mail',         defaultW: 560, defaultH: 480 },
-  search:   { title: 'Search Companion',                 icon: 'search',       defaultW: 380, defaultH: 480 },
-  admin:    { title: 'Portfolio Admin Panel',             icon: 'admin_panel_settings', defaultW: 850, defaultH: 600 },
+  about:    { title: 'About Me — Portfolio.exe',         icon: '/icons/xp_about.svg',       defaultW: 680, defaultH: 500 },
+  projects: { title: 'My Projects',                      icon: '/icons/xp_projects.svg',    defaultW: 780, defaultH: 520 },
+  skills:   { title: 'My Computer — Skills & Resume',    icon: '/icons/xp_mycomputer.svg',  defaultW: 740, defaultH: 560 },
+  contact:  { title: 'Contact Me',                       icon: '/icons/xp_contact.svg',     defaultW: 560, defaultH: 480 },
+  search:   { title: 'Search Companion',                 icon: '/icons/xp_search.svg',      defaultW: 380, defaultH: 480 },
+  admin:    { title: 'Portfolio Admin Panel',             icon: '/icons/xp_admin.svg',       defaultW: 850, defaultH: 600 },
 };
 
 export default function XPDesktop() {
@@ -30,12 +31,24 @@ export default function XPDesktop() {
   const [windows, setWindows] = useState({});   // id → { minimized, zIndex, x, y, w, h }
   const [zTop, setZTop] = useState(100);
   const [toast, setToast] = useState(null);
+  const desktopRef = useRef(null);
 
   // Firebase auth listener
   useEffect(() => {
     const unsub = onAuthChange((u) => setUser(u));
     return unsub;
   }, []);
+
+  // Fade in desktop when it activates
+  useEffect(() => {
+    if (phase === 'desktop' && desktopRef.current) {
+      gsap.fromTo(
+        desktopRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.6, ease: 'power2.out' }
+      );
+    }
+  }, [phase]);
 
   // ─── Boot complete ──────────────────────────────────────────
   const handleBootDone = () => setPhase('login');
@@ -144,7 +157,7 @@ export default function XPDesktop() {
       {/* ── Desktop ── */}
       {phase === 'desktop' && (
         <PortfolioProvider>
-        <div className={styles.desktop}>
+        <div ref={desktopRef} className={styles.desktop}>
           {/* Wallpaper */}
           <div className={styles.wallpaper} />
 

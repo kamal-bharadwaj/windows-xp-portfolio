@@ -1,6 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
+# ─── Dependencies ──────────────────────────────────────────────
 /node_modules
 /.pnp
 .pnp.*
@@ -10,32 +10,49 @@
 !.yarn/releases
 !.yarn/versions
 
-# testing
+# ─── Testing ───────────────────────────────────────────────────
 /coverage
 
-# next.js
+# ─── Next.js build output ──────────────────────────────────────
 /.next/
 /out/
-
-# production
 /build
 
-# misc
-.DS_Store
-*.pem
+# ─── Firebase ──────────────────────────────────────────────────
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
+firestore-debug.log
+ui-debug.log
+database-debug.log
 
-# debug
+# ─── Environment / Secrets ─────────────────────────────────────
+# NEVER commit .env.local — it contains your Firebase API keys
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+# .env.example is safe to commit (contains no real keys)
+
+# ─── OS / Editor ───────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.pem
+.vscode/settings.json
+.idea/
+
+# ─── Debug logs ────────────────────────────────────────────────
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
-
-# vercel
+# ─── Vercel ────────────────────────────────────────────────────
 .vercel
 
-# typescript
+# ─── TypeScript ────────────────────────────────────────────────
 *.tsbuildinfo
 next-env.d.ts
+
+# ─── Design / Screenshots (optional, large files) ──────────────
+/screens

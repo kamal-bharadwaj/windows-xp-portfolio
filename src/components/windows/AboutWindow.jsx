@@ -1,10 +1,28 @@
 'use client';
+import { useEffect, useRef } from 'react';
 import styles from './AboutWindow.module.css';
 import { usePortfolioData } from '@/lib/PortfolioContext';
 
 export default function AboutWindow({ openWindow }) {
   const { data } = usePortfolioData();
   const { personal, awards } = data;
+  const progressRef = useRef(null);
+
+  // Animate progress bars from 0 on mount
+  useEffect(() => {
+    if (!progressRef.current) return;
+    const fills = progressRef.current.querySelectorAll('[data-width]');
+    // Start at 0
+    fills.forEach(el => { el.style.width = '0%'; });
+    // Then animate to target after a tiny paint delay
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        fills.forEach(el => {
+          el.style.width = el.dataset.width;
+        });
+      });
+    });
+  }, []);
 
   return (
     <div className={styles.wrap}>
@@ -72,7 +90,7 @@ export default function AboutWindow({ openWindow }) {
         </div>
 
         {/* XP Progress */}
-        <div className={styles.section}>
+        <div className={styles.section} ref={progressRef}>
           <h3 className={styles.secTitle}>Skill Deployment Progress</h3>
           {[
             { label: 'AI & Machine Learning', pct: 88 },
@@ -83,7 +101,7 @@ export default function AboutWindow({ openWindow }) {
             <div key={p.label} className={styles.progressRow}>
               <div className={styles.progressLabel}>{p.label}</div>
               <div className={styles.progressBar}>
-                <div className={styles.progressFill} style={{ width: `${p.pct}%` }} />
+                <div className={styles.progressFill} data-width={`${p.pct}%`} style={{ width: `${p.pct}%` }} />
               </div>
               <div className={styles.progressPct}>{p.pct}%</div>
             </div>

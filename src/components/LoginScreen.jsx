@@ -1,5 +1,6 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import gsap from 'gsap';
 import styles from './LoginScreen.module.css';
 import { loginWithEmail, loginWithGoogle } from '@/lib/firebase';
 
@@ -8,6 +9,32 @@ export default function LoginScreen({ onDone, showToast }) {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const screenRef = useRef(null);
+
+  // Entrance animation on mount
+  useEffect(() => {
+    if (screenRef.current) {
+      gsap.fromTo(
+        screenRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.4, ease: 'power2.out' }
+      );
+    }
+  }, []);
+
+  const handleFinish = () => {
+    if (!screenRef.current) {
+      onDone();
+      return;
+    }
+    gsap.to(screenRef.current, {
+      opacity: 0,
+      scale: 1.02,
+      duration: 0.4,
+      ease: 'power2.inOut',
+      onComplete: onDone,
+    });
+  };
 
   const handleEmailLogin = async () => {
     if (!password) { setError('Please enter a password.'); return; }
@@ -15,7 +42,7 @@ export default function LoginScreen({ onDone, showToast }) {
     try {
       await loginWithEmail('kamal.bharadwj@gmail.com', password);
       showToast('Welcome back, Kamal!', 'success');
-      onDone();
+      handleFinish();
     } catch {
       setError('Incorrect password. Try again.');
     } finally {
@@ -28,7 +55,7 @@ export default function LoginScreen({ onDone, showToast }) {
     try {
       await loginWithGoogle();
       showToast('Signed in with Google!', 'success');
-      onDone();
+      handleFinish();
     } catch (e) {
       if (e.code !== 'auth/popup-closed-by-user') {
         setError('Google sign-in failed. Try again.');
@@ -40,11 +67,11 @@ export default function LoginScreen({ onDone, showToast }) {
 
   const handleGuestLogin = () => {
     showToast('Browsing as Guest', 'info');
-    onDone();
+    handleFinish();
   };
 
   return (
-    <div className={styles.screen}>
+    <div ref={screenRef} className={styles.screen}>
       {/* Top: branding + users */}
       <div className={styles.top}>
         {/* Left branding */}
@@ -67,7 +94,7 @@ export default function LoginScreen({ onDone, showToast }) {
             onClick={() => setShowPw(!showPw)}
           >
             <div className={styles.avatar}>
-              <span className="material-symbols-outlined" style={{ fontSize: 40, color: '#245edb', fontVariationSettings: "'FILL' 1" }}>person</span>
+              <img src="/icons/xp_avatar.svg" className={styles.avatarImg} alt="" />
             </div>
             <div className={styles.userInfo}>
               <span className={styles.username}>Kamal Kumar</span>
@@ -125,7 +152,7 @@ export default function LoginScreen({ onDone, showToast }) {
       <div className={styles.bottomBar}>
         <div className={styles.powerBtn} onClick={() => window.close()}>
           <div className={styles.powerIcon}>
-            <span className="material-symbols-outlined" style={{ fontSize: 20, fontVariationSettings: "'FILL' 1" }}>power_settings_new</span>
+            <img src="/icons/xp_power.svg" className={styles.powerPng} alt="" />
           </div>
           <span className={styles.powerLabel}>Turn off computer</span>
         </div>

@@ -1,38 +1,63 @@
 'use client';
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 import styles from './DesktopIcons.module.css';
 import portfolioData from '@/lib/portfolioData';
 
 const { personal } = portfolioData;
 
 const ICONS = [
-  { id: 'about',    label: 'About Me',     icon: 'person',        color: '#245edb' },
-  { id: 'projects', label: 'My Projects',  icon: 'folder',        color: '#f5a623' },
-  { id: 'skills',   label: 'My Computer',  icon: 'computer',      color: '#737686' },
-  { id: 'contact',  label: 'Contact Me',   icon: 'mail',          color: '#3c813f' },
-  { id: 'search',   label: 'Search',       icon: 'search',        color: '#8e2f00' },
+  { id: 'about',    label: 'About Me',     icon: '/icons/xp_about.svg' },
+  { id: 'projects', label: 'My Projects',  icon: '/icons/xp_projects.svg' },
+  { id: 'skills',   label: 'My Computer',  icon: '/icons/xp_mycomputer.svg' },
+  { id: 'contact',  label: 'Contact Me',   icon: '/icons/xp_contact.svg' },
+  { id: 'search',   label: 'Search',       icon: '/icons/xp_search.svg' },
   {
     id: 'github',
     label: 'GitHub',
-    icon: 'code',
-    color: '#1c1c12',
+    icon: '/icons/xp_github.svg',
     href: `https://${personal.github}`,
   },
   {
     id: 'linkedin',
     label: 'LinkedIn',
-    icon: 'work',
-    color: '#0077b5',
+    icon: '/icons/xp_linkedin.svg',
     href: `https://${personal.linkedin}`,
   },
   {
     id: 'resume',
     label: 'Resume.pdf',
-    icon: 'description',
-    color: '#ba1a1a',
+    icon: '/icons/xp_resume.svg',
+    href: '/resume/resume.pdf',
   },
 ];
 
 export default function DesktopIcons({ openWindow }) {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        `.${styles.icon}`,
+        {
+          opacity: 0,
+          scale: 0.5,
+          y: 30,
+        },
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.08,
+          ease: 'back.out(1.5)',
+        }
+      );
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   const handleClick = (icon) => {
     if (icon.href) {
       window.open(icon.href, '_blank', 'noopener');
@@ -42,7 +67,7 @@ export default function DesktopIcons({ openWindow }) {
   };
 
   return (
-    <div className={styles.grid}>
+    <div className={styles.grid} ref={containerRef}>
       {ICONS.map((icon) => (
         <div
           key={icon.id}
@@ -60,12 +85,11 @@ export default function DesktopIcons({ openWindow }) {
           title={`Double-click to open ${icon.label}`}
         >
           <div className={styles.iconImg}>
-            <span
-              className="material-symbols-outlined"
-              style={{ fontSize: 40, color: icon.color, fontVariationSettings: "'FILL' 1", filter: 'drop-shadow(1px 2px 4px rgba(0,0,0,0.5))' }}
-            >
-              {icon.icon}
-            </span>
+            <img
+              src={icon.icon}
+              className={styles.iconPng}
+              alt=""
+            />
           </div>
           <span className={styles.label}>{icon.label}</span>
         </div>

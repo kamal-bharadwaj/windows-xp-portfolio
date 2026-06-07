@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <defs>
+    <linearGradient id="li_bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a7cc7"/>
+      <stop offset="100%" stop-color="#0057a8"/>
+    </linearGradient>
+    <filter id="shadow_li">
+      <feDropShadow dx="1" dy="2" stdDeviation="1.5" flood-color="rgba(0,0,0,0.4)"/>
+    </filter>
+  </defs>
+  <!-- Rounded square background -->
+  <rect x="2" y="2" width="44" height="44" rx="8" fill="url(#li_bg)" filter="url(#shadow_li)"/>
+  <!-- Shine -->
+  <rect x="2" y="2" width="44" height="14" rx="8" fill="white" opacity="0.15"/>
+  <!-- "in" wordmark in white -->
+  <!-- Left dot for 'i' -->
+  <circle cx="13" cy="14" r="3.2" fill="white"/>
+  <!-- Stem of 'i' -->
+  <rect x="10.4" y="19" width="5.2" height="17" rx="2" fill="white"/>
+  <!-- 'n' -->
+  <rect x="19" y="19" width="5" height="17" rx="2" fill="white"/>
+  <path d="M24 25 Q24 19 30 19 Q36 19 36 25 L36 36 L31 36 L31 26 Q31 23 28.5 23 Q26 23 26 26 L26 36 L21 36 Z" fill="white"/>
+</svg>

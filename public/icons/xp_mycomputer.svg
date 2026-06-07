@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <defs>
+    <linearGradient id="monitor_body" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#dce4f0"/>
+      <stop offset="100%" stop-color="#a8b8cc"/>
+    </linearGradient>
+    <linearGradient id="screen_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a70e0"/>
+      <stop offset="50%" stop-color="#0d4db8"/>
+      <stop offset="100%" stop-color="#082880"/>
+    </linearGradient>
+    <filter id="shadow_pc">
+      <feDropShadow dx="1" dy="2" stdDeviation="1.5" flood-color="rgba(0,0,0,0.4)"/>
+    </filter>
+  </defs>
+  <!-- Monitor -->
+  <rect x="4" y="4" width="36" height="28" rx="3" fill="url(#monitor_body)" filter="url(#shadow_pc)"/>
+  <rect x="7" y="7" width="30" height="22" rx="1" fill="url(#screen_grad)"/>
+  <!-- Screen icons - XP logo marks -->
+  <rect x="10" y="10" width="6" height="6" rx="1" fill="#f25022" opacity="0.8"/>
+  <rect x="17" y="10" width="6" height="6" rx="1" fill="#7fba00" opacity="0.8"/>
+  <rect x="10" y="17" width="6" height="6" rx="1" fill="#00a4ef" opacity="0.8"/>
+  <rect x="17" y="17" width="6" height="6" rx="1" fill="#ffb900" opacity="0.8"/>
+  <!-- Screen shine -->
+  <rect x="7" y="7" width="30" height="4" fill="white" opacity="0.15" rx="1"/>
+  <!-- Stand neck -->
+  <rect x="19" y="32" width="6" height="4" rx="1" fill="#b0bcc8"/>
+  <!-- Stand base -->
+  <rect x="12" y="36" width="20" height="4" rx="2" fill="url(#monitor_body)"/>
+  <!-- Computer tower (mini) -->
+  <rect x="38" y="22" width="7" height="20" rx="2" fill="url(#monitor_body)" filter="url(#shadow_pc)"/>
+  <rect x="39" y="26" width="5" height="2" rx="1" fill="#0060d0"/>
+  <circle cx="41" cy="31" r="1.2" fill="#888"/>
+  <rect x="39" y="34" width="5" height="1.5" rx="0.5" fill="#ccd"/>
+</svg>

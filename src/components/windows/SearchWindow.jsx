@@ -112,7 +112,23 @@ export default function SearchWindow({ openWindow }) {
           <div className={styles.suggestions}>
             <p className={styles.suggestTitle}>Try searching for:</p>
             {['Python', 'DRDO', 'Next.js', 'Sign Language', 'SGPA', 'Agra'].map((s) => (
-              <button key={s} className={styles.suggestChip} onClick={() => { setQueryText(s); }}>
+              <button key={s} className={styles.suggestChip} onClick={() => {
+                setQueryText(s);
+                // Trigger search immediately with this chip value
+                const q = s.toLowerCase();
+                const found = INDEX.filter(
+                  (e) => e.value.toLowerCase().includes(q) || e.label.toLowerCase().includes(q)
+                );
+                const seen = new Set();
+                const deduped = found.filter((e) => {
+                  const key = `${e.category}:${e.label}:${e.value}`;
+                  if (seen.has(key)) return false;
+                  seen.add(key);
+                  return true;
+                });
+                setResults(deduped.slice(0, 20));
+                setSearched(true);
+              }}>
                 {s}
               </button>
             ))}

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <defs>
+    <radialGradient id="power_bg" cx="50%" cy="40%" r="58%">
+      <stop offset="0%" stop-color="#ff6b4a"/>
+      <stop offset="100%" stop-color="#c01010"/>
+    </radialGradient>
+    <radialGradient id="power_glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(255,120,80,0.5)"/>
+      <stop offset="100%" stop-color="rgba(255,80,40,0)"/>
+    </radialGradient>
+    <filter id="shadow_power">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="rgba(180,0,0,0.5)"/>
+    </filter>
+  </defs>
+  <!-- Outer glow ring -->
+  <circle cx="24" cy="25" r="20" fill="url(#power_glow)"/>
+  <!-- Circle button body -->
+  <circle cx="24" cy="25" r="17" fill="url(#power_bg)" filter="url(#shadow_power)"/>
+  <!-- Circle shine -->
+  <ellipse cx="19" cy="17" rx="7" ry="4" fill="white" opacity="0.25"/>
+  <!-- Power symbol ring (open arc) -->
+  <path d="M16 16 A11 11 0 1 0 32 16" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Power symbol stem -->
+  <line x1="24" y1="14" x2="24" y2="24" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+</svg>

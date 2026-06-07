@@ -108,3 +108,17 @@
   opacity: 0.8;
 }
 
+.startLogo {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.3));
+}
+
+.taskIcon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+

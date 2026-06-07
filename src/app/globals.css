@@ -1,9 +1,7 @@
 /* ============================================================
    GLOBAL STYLES & XP LUNA DESIGN SYSTEM
    ============================================================ */
-
-@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+/* Note: Arimo & Material Symbols fonts are loaded via <link> in layout.js */
 
 :root {
   /* XP Luna Palette */

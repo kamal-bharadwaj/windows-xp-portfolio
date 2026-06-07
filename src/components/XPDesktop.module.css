@@ -10,18 +10,11 @@
   height: 100vh;
   position: relative;
   overflow: hidden;
-  animation: fadeIn 0.4s ease;
 }
 
 .wallpaper {
   position: absolute;
   inset: 0;
-  background: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDz_BIYypyhaaEvyOqyNFwdBh-kBvSEPZbJE_0ITA13seOlYKwDxV8ypUHTNwB9qN2jFWRUHdRkQB_P-4iXzJi_0hoEupiSnz2yotZB9OOJZd7_i5IzLSbbwiQConCIK7bMRD6CsIkLrnPvjUZOuKLdhCms67htYO1AG75AgYxt8t8sBG85wFrRxUJjlIO1a7Q2FZzVBnJCGYBjl4oc0mMpmzys4jFdJDxnLJpohQlZmTA385k9CGmHKb6xiALeemDWngaEpPx8r9U')
-    center / cover no-repeat;
+  background: url('/bliss.jpg') center / cover no-repeat;
   z-index: 0;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
 }

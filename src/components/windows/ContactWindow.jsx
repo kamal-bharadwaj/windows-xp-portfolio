@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './ContactWindow.module.css';
 import { submitContactMessage } from '@/lib/firebase';
 import { usePortfolioData } from '@/lib/PortfolioContext';
@@ -28,6 +28,14 @@ export default function ContactWindow({ showToast }) {
       showToast('Failed to send. Check Firebase config.', 'error');
     }
   };
+
+  // Auto-reset success state so form is re-usable
+  useEffect(() => {
+    if (status === 'success') {
+      const t = setTimeout(() => setStatus('idle'), 4000);
+      return () => clearTimeout(t);
+    }
+  }, [status]);
 
   return (
     <div className={styles.wrap}>

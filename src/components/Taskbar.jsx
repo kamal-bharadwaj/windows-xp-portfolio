@@ -30,7 +30,7 @@ export default function Taskbar({ windows, windowDefs, startMenuOpen, onStartCli
         id="start-btn"
         aria-label="Start Menu"
       >
-        <span className="material-symbols-outlined" style={{ fontSize: 20, fontVariationSettings: "'FILL' 1" }}>window</span>
+        <img src="/xp_logo.svg" className={styles.startLogo} alt="" />
         <span className={styles.startLabel}>start</span>
       </button>
 
@@ -46,7 +46,7 @@ export default function Taskbar({ windows, windowDefs, startMenuOpen, onStartCli
               onClick={() => onTaskClick(id)}
               title={def.title}
             >
-              <span className="material-symbols-outlined" style={{ fontSize: 14, fontVariationSettings: "'FILL' 1" }}>{def.icon}</span>
+              <img src={def.icon} className={styles.taskIcon} alt="" />
               <span className={styles.taskLabel}>{def.title.split('—')[0].trim()}</span>
             </button>
           );

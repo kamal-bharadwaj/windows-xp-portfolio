@@ -7,11 +7,25 @@
   border-radius: 8px 8px 0 0;
   box-shadow: 2px 2px 12px rgba(0,0,0,0.5), inset 1px 1px 0 rgba(255,255,255,0.4);
   overflow: hidden;
-  animation: windowOpen 0.15s ease-out;
   min-width: 280px;
   min-height: 180px;
-  resize: both;
 }
+
+.transitioning {
+  transition: top 0.25s cubic-bezier(0.1, 0.9, 0.2, 1),
+              left 0.25s cubic-bezier(0.1, 0.9, 0.2, 1),
+              width 0.25s cubic-bezier(0.1, 0.9, 0.2, 1),
+              height 0.25s cubic-bezier(0.1, 0.9, 0.2, 1);
+}
+
+.titleIcon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  margin-right: 2px;
+  flex-shrink: 0;
+}
+
 .titlebar {
   height: 30px;
   background: linear-gradient(180deg, #0058ee 0%, #3784ff 90%, #2176e8 100%);
@@ -112,8 +126,4 @@
   color: #434654;
   flex-shrink: 0;
   font-family: 'Arimo', sans-serif;
-}
-@keyframes windowOpen {
-  from { transform: scale(0.92) translateY(8px); opacity: 0; }
-  to   { transform: scale(1) translateY(0); opacity: 1; }
 }

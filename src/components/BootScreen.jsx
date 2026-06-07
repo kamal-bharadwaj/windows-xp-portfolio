@@ -1,17 +1,32 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
+import gsap from 'gsap';
 import styles from './BootScreen.module.css';
 
 export default function BootScreen({ onDone }) {
+  const containerRef = useRef(null);
   const timerRef = useRef(null);
 
-  useEffect(() => {
-    timerRef.current = setTimeout(onDone, 4000);
-    return () => clearTimeout(timerRef.current);
+  const handleFinish = useCallback(() => {
+    if (!containerRef.current) {
+      onDone();
+      return;
+    }
+    gsap.to(containerRef.current, {
+      opacity: 0,
+      duration: 0.5,
+      ease: 'power2.inOut',
+      onComplete: onDone,
+    });
   }, [onDone]);
 
+  useEffect(() => {
+    timerRef.current = setTimeout(handleFinish, 4000);
+    return () => clearTimeout(timerRef.current);
+  }, [handleFinish]);
+
   return (
-    <div className={styles.boot} onClick={() => { clearTimeout(timerRef.current); onDone(); }}>
+    <div ref={containerRef} className={styles.boot} onClick={() => { clearTimeout(timerRef.current); handleFinish(); }}>
       <div className={styles.logoArea}>
         {/* XP Logo SVG inline */}
         <svg viewBox="0 0 200 80" className={styles.xpLogoSvg} xmlns="http://www.w3.org/2000/svg">
