@@ -8,7 +8,7 @@
 
 **A fully interactive Windows XP-themed developer portfolio**
 
-[🌐 Live Demo](https://windows-xp-portfolio-467e2.web.app) • [📬 Contact Me](mailto:kamal.bharadwj@gmail.com)
+[🌐 Live Demo](https://kamal-bharadwaj.web.app) • [📬 Contact Me](mailto:kamal.bharadwj@gmail.com)
 
 </div>
 
