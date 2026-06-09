@@ -31,6 +31,29 @@
 
 ---
 
+## 📸 Screenshots
+
+*(Save your actual screenshots in the `public/screenshots` folder with the names below to replace these placeholders)*
+
+<details>
+<summary><b>Click to expand screenshots</b></summary>
+
+### Desktop & Windows
+![Desktop View](/screenshots/desktop.png)
+
+### Start Menu & Search
+![Start Menu](/screenshots/start-menu.png)
+
+### Login Screen
+![Login Screen](/screenshots/login.png)
+
+### Admin Panel
+![Admin Panel](/screenshots/admin.png)
+
+</details>
+
+---
+
 ## 🚀 Getting Started
 
 ### 1. Clone & Install
