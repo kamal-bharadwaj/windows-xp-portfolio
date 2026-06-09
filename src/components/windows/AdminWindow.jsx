@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import styles from './AdminWindow.module.css';
 import { usePortfolioData } from '@/lib/PortfolioContext';
-import { getContactMessages, deleteContactMessage } from '@/lib/firebase';
+import { getContactMessages, deleteContactMessage } from '@/lib/supabase';
 
 /* ── Sidebar tabs ──────────────────────────────────────── */
 const TABS = [
@@ -160,7 +160,7 @@ export default function AdminWindow({ user, showToast }) {
               <span className={styles.msgEmail}>&lt;{m.email}&gt;</span>
             </div>
             <span className={styles.msgTime}>
-              {m.timestamp?.toDate ? new Date(m.timestamp.toDate()).toLocaleString() : '—'}
+              {m.created_at ? new Date(m.created_at).toLocaleString() : '—'}
             </span>
           </div>
           <div className={styles.msgBody}>{m.message}</div>

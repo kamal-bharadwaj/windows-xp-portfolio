@@ -127,3 +127,16 @@
   flex-shrink: 0;
   font-family: 'Arimo', sans-serif;
 }
+.resizer {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  width: 12px;
+  height: 12px;
+  cursor: se-resize;
+  z-index: 10;
+  background-image: linear-gradient(135deg, transparent 30%, #737686 30%, #737686 40%, transparent 40%, transparent 50%, #737686 50%, #737686 60%, transparent 60%, transparent 70%, #737686 70%, #737686 80%, transparent 80%);
+  background-size: 8px 8px;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}

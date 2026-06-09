@@ -7,6 +7,12 @@
   gap: 2px;
   background: #ece9d8;
   flex-shrink: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  flex-wrap: nowrap;
+}
+.tabs::-webkit-scrollbar {
+  display: none;
 }
 .tab {
   padding: 4px 16px 3px;
@@ -20,6 +26,7 @@
   margin-bottom: -1px;
   font-family: 'Arimo', sans-serif;
   transition: background 0.1s;
+  flex-shrink: 0;
 }
 .tab:hover { background: linear-gradient(180deg, #ece9d8 0%, #e0dcd0 100%); }
 .tabActive {
@@ -115,4 +122,13 @@
   font-size: 11px;
   line-height: 1.5;
   color: #1c1c12;
+}
+
+@media (max-width: 500px) {
+  .sysHeader {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 8px;
+  }
 }

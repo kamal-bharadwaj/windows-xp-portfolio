@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import styles from './ContactWindow.module.css';
-import { submitContactMessage } from '@/lib/firebase';
+import { submitContactMessage } from '@/lib/supabase';
 import { usePortfolioData } from '@/lib/PortfolioContext';
 
 export default function ContactWindow({ showToast }) {
@@ -25,7 +25,7 @@ export default function ContactWindow({ showToast }) {
       showToast('Message sent! Kamal will reply soon 📬', 'success');
     } catch (err) {
       setStatus('error');
-      showToast('Failed to send. Check Firebase config.', 'error');
+      showToast('Failed to send. Please try again later.', 'error');
     }
   };
 

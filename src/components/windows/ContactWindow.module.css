@@ -111,3 +111,14 @@
 .clearBtn:hover { filter: brightness(1.05); }
 .clearBtn:active { transform: translate(1px, 1px); }
 @keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 600px) {
+  .wrap {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #c3c6d6;
+  }
+}

@@ -67,7 +67,7 @@ export default function StartMenu({ user, openWindow, onClose, onLogout }) {
       {/* Header */}
       <div className={styles.header}>
         <div className={styles.avatar}>
-          <img src="/icons/xp_avatar.svg" className={styles.avatarImg} alt="" />
+          <img src="/icons/kamal_avatar.png" className={styles.avatarImg} alt="" />
         </div>
         <div>
           <div className={styles.name}>{user ? (user.displayName || user.email) : personal.name}</div>

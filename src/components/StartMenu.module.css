@@ -123,6 +123,21 @@
   flex-shrink: 0;
 }
 @media (max-width: 600px) {
-  .menu { width: 100%; border-radius: 8px 8px 0 0; }
-  .right { display: none; }
+  .menu {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+  }
+  .body {
+    flex-direction: column;
+  }
+  .left {
+    border-right: none;
+    border-bottom: 1px solid #c3c6d6;
+  }
+  .right {
+    width: 100%;
+    background: #f1eedd;
+  }
 }

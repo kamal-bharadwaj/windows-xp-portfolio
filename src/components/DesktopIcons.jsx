@@ -74,6 +74,10 @@ export default function DesktopIcons({ openWindow }) {
           className={styles.icon}
           onDoubleClick={() => handleClick(icon)}
           onClick={(e) => {
+            if (window.innerWidth <= 768) {
+              handleClick(icon);
+              return;
+            }
             // single click selects, double click opens
             const el = e.currentTarget;
             el.classList.toggle(styles.selected);

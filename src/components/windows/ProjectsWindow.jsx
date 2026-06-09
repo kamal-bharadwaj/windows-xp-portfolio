@@ -39,6 +39,11 @@ export default function ProjectsWindow() {
                 key={i}
                 className={styles.folder}
                 onDoubleClick={() => setSelected(p)}
+                onClick={() => {
+                  if (window.innerWidth <= 768) {
+                    setSelected(p);
+                  }
+                }}
                 title={`Double-click to open: ${p.title}`}
               >
                 <span

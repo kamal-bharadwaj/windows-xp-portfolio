@@ -76,7 +76,8 @@ export default function LoginScreen({ onDone, showToast }) {
       <div className={styles.top}>
         {/* Left branding */}
         <div className={styles.branding}>
-          <div>
+          <div className={styles.brandContent}>
+            <img src="/xp_logo.svg" className={styles.brandLogo} alt="Windows XP Logo" />
             <h1 className={styles.windowsText}>Windows</h1>
             <p className={styles.tagline}>
               <span className={styles.xp}>XP</span>&nbsp; Professional
@@ -88,13 +89,21 @@ export default function LoginScreen({ onDone, showToast }) {
 
         {/* Right user list */}
         <div className={styles.userList}>
+          {/* Mobile branding header */}
+          <div className={styles.mobileBranding}>
+            <img src="/xp_logo.svg" className={styles.mobileLogo} alt="" />
+            <div className={styles.mobileTitle}>
+              <span className={styles.mobileWindows}>Windows</span>
+              <span className={styles.mobileXP}>XP</span>
+            </div>
+          </div>
           {/* Kamal's tile */}
           <div
             className={styles.userTile}
             onClick={() => setShowPw(!showPw)}
           >
             <div className={styles.avatar}>
-              <img src="/icons/xp_avatar.svg" className={styles.avatarImg} alt="" />
+              <img src="/icons/kamal_avatar.png" className={styles.avatarImg} alt="" />
             </div>
             <div className={styles.userInfo}>
               <span className={styles.username}>Kamal Kumar</span>

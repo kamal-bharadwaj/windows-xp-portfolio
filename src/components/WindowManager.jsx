@@ -39,6 +39,7 @@ export default function WindowManager({
             onMinimize={() => minimizeWindow(id)}
             onFocus={() => focusWindow(id)}
             onMove={(x, y) => updateWindow(id, { x, y })}
+            onResize={(w, h) => updateWindow(id, { w, h })}
           >
             <Content user={user} openWindow={openWindow} showToast={showToast} />
           </XPWindow>

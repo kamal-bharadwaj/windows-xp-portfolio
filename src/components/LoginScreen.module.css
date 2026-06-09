@@ -19,6 +19,18 @@
   position: relative;
   gap: 0;
 }
+.brandContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+.brandLogo {
+  width: 90px;
+  height: 90px;
+  margin-bottom: 16px;
+  filter: drop-shadow(0 0 20px rgba(255,255,255,0.25));
+}
 .windowsText {
   color: #fff;
   font-size: 52px;
@@ -234,7 +246,50 @@
   height: 32px;
   object-fit: contain;
 }
+.mobileBranding {
+  display: none;
+}
+
 @media (max-width: 700px) {
   .branding { display: none; }
   .userList { padding: 24px; }
+  .mobileBranding {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    align-self: center;
+  }
+  .mobileLogo {
+    width: 44px;
+    height: 44px;
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.15));
+  }
+  .mobileTitle {
+    display: flex;
+    flex-direction: column;
+  }
+  .mobileWindows {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+  }
+  .mobileXP {
+    color: #ffaa00;
+    font-weight: 900;
+    font-size: 16px;
+    font-style: italic;
+    line-height: 1;
+    margin-top: 2px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  }
+}
+
+@media (max-width: 500px) {
+  .bottomNote { display: none; }
+  .bottomBar { justify-content: center; padding: 0 16px; }
 }

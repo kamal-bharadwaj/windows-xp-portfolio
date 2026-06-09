@@ -157,3 +157,21 @@
   transition: width 0.5s ease;
 }
 .progressPct { font-size: 11px; color: #737686; text-align: right; }
+
+@media (max-width: 600px) {
+  .wrap {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #c3c6d6;
+  }
+  .progressRow {
+    grid-template-columns: 1fr 36px;
+    gap: 4px;
+  }
+  .progressLabel {
+    grid-column: span 2;
+  }
+}

@@ -48,9 +48,10 @@
   color: #1c1c12;
 }
 .grid {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  align-content: start;
+  align-items: start;
   gap: 8px;
   padding: 16px;
   overflow-y: auto;
@@ -62,7 +63,6 @@
   align-items: center;
   gap: 4px;
   padding: 10px 8px;
-  width: 140px;
   cursor: default;
   border: 1px solid transparent;
   border-radius: 2px;
@@ -147,4 +147,10 @@
   gap: 8px;
   font-size: 12px;
   line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    display: none;
+  }
 }

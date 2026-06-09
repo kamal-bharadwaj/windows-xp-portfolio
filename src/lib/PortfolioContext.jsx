@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useContext, useState, useEffect, useCallback } from 'react';
-import { getPortfolioData, seedPortfolioData, savePortfolioSection } from './firebase';
+import { getPortfolioData, seedPortfolioData, savePortfolioSection } from './supabase';
 import defaultPortfolioData from './portfolioData';
 
 const PortfolioContext = createContext(null);
@@ -10,19 +10,19 @@ export function PortfolioProvider({ children }) {
   const [data, setData] = useState(defaultPortfolioData);
   const [loading, setLoading] = useState(true);
 
-  // Load portfolio data from Firestore on mount
+  // Load portfolio data from Supabase on mount
   useEffect(() => {
     const load = async () => {
       try {
-        let firestoreData = await getPortfolioData();
-        if (!firestoreData) {
-          // First time — seed Firestore with the static defaults
+        let remoteData = await getPortfolioData();
+        if (!remoteData) {
+          // First time — seed Supabase with the static defaults
           await seedPortfolioData(defaultPortfolioData);
-          firestoreData = defaultPortfolioData;
+          remoteData = defaultPortfolioData;
         }
-        setData(firestoreData);
+        setData({ ...defaultPortfolioData, ...remoteData });
       } catch (err) {
-        console.warn('Failed to load portfolio data from Firestore, using defaults:', err);
+        console.warn('Supabase unavailable, using defaults:', err);
         setData(defaultPortfolioData);
       } finally {
         setLoading(false);
@@ -43,12 +43,12 @@ export function PortfolioProvider({ children }) {
     }
   }, []);
 
-  // Refresh data from Firestore
+  // Refresh data from Supabase
   const refreshData = useCallback(async () => {
     try {
-      const firestoreData = await getPortfolioData();
-      if (firestoreData) {
-        setData(firestoreData);
+      const remoteData = await getPortfolioData();
+      if (remoteData) {
+        setData({ ...defaultPortfolioData, ...remoteData });
       }
     } catch (err) {
       console.error('Failed to refresh portfolio data:', err);

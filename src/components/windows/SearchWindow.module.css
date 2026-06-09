@@ -113,3 +113,10 @@
   transition: filter 0.1s;
 }
 .suggestChip:hover { filter: brightness(1.05); }
+
+@media (max-width: 500px) {
+  .resultItem {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
