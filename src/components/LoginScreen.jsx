@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import styles from './LoginScreen.module.css';
-import { loginWithEmail, loginWithGoogle } from '@/lib/firebase';
+import { loginWithEmail, loginWithGoogle, logout } from '@/lib/firebase';
 
 export default function LoginScreen({ onDone, showToast }) {
   const [showPw, setShowPw] = useState(false);
@@ -65,7 +65,14 @@ export default function LoginScreen({ onDone, showToast }) {
     }
   };
 
-  const handleGuestLogin = () => {
+  const handleGuestLogin = async () => {
+    setLoading(true);
+    try {
+      await logout();
+    } catch (e) {
+      console.error('Guest logout error:', e);
+    }
+    setLoading(false);
     showToast('Browsing as Guest', 'info');
     handleFinish();
   };
