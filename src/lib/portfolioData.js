@@ -48,6 +48,20 @@ const portfolioData = {
 
   experience: [
     {
+      role: 'System Designer',
+      org: 'Rebisoft Tech',
+      location: 'Chandigarh, India (Remote)',
+      period: 'Oct 2025 – May 2026',
+      highlights: [
+        'End-to-End Architecture: Architected and documented scalable, high-performance software systems, defining API contracts, component boundaries, and optimal cloud infrastructure layouts.',
+        'GenAI & Full-Stack Integration: Guided the integration of Generative AI capabilities into modern full-stack web applications; designed infrastructure to support LLM workflows, vector databases, and real-time AI-driven user experiences without sacrificing web performance.',
+        'Overview Schema Design: Acted as the primary data architect, designing the high-level "Overview Schema" to optimize data topologies for both transactional efficiency and AI-readiness (including RAG systems and semantic search).',
+        'Technical Leadership: Collaborated closely with full-stack development teams, translating complex business requirements into clear technical blueprints (using Miro/Mermaid.js) to ensure seamless engineering execution.',
+        'System Optimization: Conducted regular architectural reviews to eliminate performance bottlenecks, mitigate security risks, and ensure the system could scale alongside user growth.',
+      ],
+      icon: 'architecture',
+    },
+    {
       role: 'Research Intern',
       org: 'Defence Institute of Bio Energy Research (DRDO DIBER)',
       location: 'Haldwani, Uttarakhand',
@@ -72,6 +86,20 @@ const portfolioData = {
   ],
 
   projects: [
+    {
+      title: 'Windows XP Interactive Web Portfolio',
+      tags: ['Next.js', 'React', 'GSAP', 'Supabase', 'Firebase'],
+      icon: 'laptop_windows',
+      color: '#0058e6',
+      description:
+        'Architected and developed a nostalgic, highly interactive portfolio website simulating the Windows XP operating system environment entirely within the browser.',
+      highlights: [
+        'Built with Next.js and React for robust component-based architecture',
+        'Integrated GSAP for fluid, authentic OS-like window animations and interactions',
+        'Leveraged Supabase and Firebase for backend data and real-time capabilities',
+        'Designed a highly nostalgic and responsive user experience replicating classic Windows XP UI patterns',
+      ],
+    },
     {
       title: 'Real-Time Sign Language Recognition System',
       tags: ['Python', 'MobileNetV2', 'LSTM', 'AI/ML'],
