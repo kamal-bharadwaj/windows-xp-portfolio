@@ -87,6 +87,21 @@ const portfolioData = {
 
   projects: [
     {
+      title: 'RAG-Powered Medic Help Bot',
+      tags: ['Supabase', 'PostgreSQL', 'Redis', 'Firebase', 'Google Auth', 'RAG'],
+      icon: 'medical_services',
+      color: '#d32f2f',
+      description:
+        'Building a RAG-powered Medic Help Bot designed to demystify health reports by providing patients with instant, clear insights and tailored guidance upon uploading their medical documents.',
+      highlights: [
+        'Designed a RAG (Retrieval-Augmented Generation) pipeline using Supabase (PostgreSQL + Vector DB) for medical context extraction',
+        'Implemented report analysis to dissect complex medical parameters into patient-friendly summaries',
+        'Created a Smart Food Section offering personalized "what to eat/what to avoid" dietary recommendations based on report findings',
+        'Built secure dual-panel user dashboards (User and Admin) utilizing Google Auth and Redis-backed session/cookie caching',
+        'Deployed production-ready deployment hosted on Firebase',
+      ],
+    },
+    {
       title: 'Windows XP Interactive Web Portfolio',
       tags: ['Next.js', 'React', 'GSAP', 'Supabase', 'Firebase'],
       icon: 'laptop_windows',
